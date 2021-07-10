@@ -1,0 +1,11 @@
+#!/bin/bash
+# requires compilation with `-DDEBUG` flag set
+
+rm -f output.dat
+
+for (( n = 0; n < 10; n++ ))
+    do echo "======= run $n ========" >> output.dat
+    ./battleship < dataIn >> output.dat 2>&1
+    echo "===== run $n complete =====" >> output.dat
+    sleep 1;
+done

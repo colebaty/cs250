@@ -1,0 +1,471 @@
+// play the game until a player has won
+
+// play the game until a player has won
+//* each player sets up their board
+//* determine a winner
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets ships' positions
+//** computer player sets ships' positions
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//*** human player sets second ship
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//**** human player sets first  ship's second piece
+//*** human player sets second ship
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//**** human player sets first  ship's second piece
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//**** human player sets second ship's second piece
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first  ship's second piece
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//**** human player sets second ship's second piece
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//**** computer player sets first ship's second piece
+//*** computer player sets second ship
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//**** computer player sets first ship's second piece
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//**** computer player sets second ship's second piece
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//**** computer player sets second ship's second piece
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//**** computer player sets second ship's second piece
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//*** human player guesses
+//*** computer player guesses
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//*** human player guesses
+//**** if hit, announce hit
+//**** else, announce miss
+//*** computer player guesses
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//*** human player guesses
+//**** if hit, announce hit
+//**** else, announce miss
+//*** computer player guesses
+//**** if hit, announce hit
+//**** else, announce miss
+//** check if someone has won
+
+// play the game until a player has won
+//* each player sets up their board
+//** human player sets two ships' positions
+//*** human player sets first ship
+//**** human player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** human player sets second ship
+//**** human player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** human player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//** computer player sets two ships' positions
+//*** computer player sets first ship
+//**** computer player sets first ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets first ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//*** computer player sets second ship
+//**** computer player sets second ship's first piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//**** computer player sets second ship's second piece
+//***** determine valid placement
+//***** if not valid, prompt for new placement
+//* determine a winner (while there's no winner)
+//** take turns guessing other player's positions
+//*** human player guesses
+//**** if hit, announce hit
+//**** else, announce miss
+//***** if human won, announce as winner, end game
+//***** else continue
+//*** computer player guesses
+//**** if hit, announce hit
+//**** else, announce miss
+//***** if computer won, announce as winner, end game
+//***** else continue
+
