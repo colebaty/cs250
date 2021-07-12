@@ -19,9 +19,9 @@ class Person
         //no pointers, so no need - compiler auto generates
 
         //manipulators
-        std::string getFName() { return _firstname; };
-        std::string getLName() { return _lastname; };
-        std::string getCar() { return _car; };
+        std::string getFName() const { return _firstname; };
+        std::string getLName() const { return _lastname; };
+        std::string getCar() const { return _car; };
 
         void setFName(std::string fname) { _firstname = fname; };
         void setLName(std::string lname) { _lastname = lname; };

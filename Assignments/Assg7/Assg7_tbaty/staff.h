@@ -15,7 +15,7 @@ class Staff: public Person
         Staff(std::string fname, std::string lname, std:: string car, int salary);
 
         //manipulators
-        int getSalary() { return _salary; };
+        int getSalary() const { return _salary; };
         void setSalary(int salary) { _salary = salary; };
 
         void print(std::ostream& out) const;
