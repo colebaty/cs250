@@ -1,5 +1,6 @@
 #include <iostream>
 #include "person.h"
+#include "staff.h"
 
 using namespace std;
 
@@ -36,5 +37,29 @@ int main()
     
     delete personPtr;
     
+    cout << "*********************************" << endl;
+    cout << "********* Staff Tests ***********" << endl;
+    cout << "*********************************" << endl;
+
+    Staff blankStaff = Staff();
+    Staff notBlankStaff = Staff("ashley", "taylor", "mazda something", 68000);
+    Staff *staffPtr = new Staff("Jarrod", "Taylor", "Mazda dogmobile", 54000);
+
+    cout << "blankStaff staff: " << blankStaff << endl;
+    cout << "not blankStaff staf: " << notBlankStaff << endl;
+    cout << "staff pointer: " << *staffPtr << endl;
+
+    cout << "getters:" << endl
+         << "\tgetFName: " << notBlankStaff.getFName() << endl
+         << "\tgetLName: " << notBlankStaff.getLName() << endl
+         << "\tgetCar: " << notBlankStaff.getCar() << endl
+         << "\tgetSalary: " << notBlankStaff.getSalary() << endl;
+
+    cout << "changing staffPtr's salary" << endl;
+    staffPtr->setSalary(69000);
+    cout << "staffPtr after change: " << *staffPtr << endl;
+
+    delete staffPtr;
+
     return 0;
 }
