@@ -2,7 +2,7 @@
 
 ## Game Description
 
-A player has a 10x10 board.  The player places 4 O-Pieces and 8 X-Pieces on the board; additionally two G-pieces are placed on the board adjacent to each other.[^*]. Using as few moves as possible, the player moves all O-Pieces off the board by reaching the G-Pieces according to the following rules:
+A player has a 10x10 board.  The player places 4 O-Pieces and 8 X-Pieces on the board; additionally two G-pieces are placed on the board adjacent to each other (pieces are set IAW assignment instructions). Using as few moves as possible, the player moves all O-Pieces off the board by reaching the G-Pieces according to the following rules:
 
 - No two pieces may share a square
 - G-Pieces do not move once set
@@ -17,8 +17,6 @@ Once an O-piece reaches a G-piece, it is removed from the board and the player's
 ### Winning the game
 
 The game is won when the Player has successfully moved all O-Pieces off the board by reaching G-Pieces.
-
-[^*:] pieces will be set per assignment instructions
 
 ## ADTs
 
