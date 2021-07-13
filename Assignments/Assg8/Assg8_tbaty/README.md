@@ -18,7 +18,7 @@ Once an O-piece reaches a G-piece, it is removed from the board and the player's
 
 The game is won when the Player has successfully moved all O-Pieces off the board by reaching G-Pieces.
 
-[^*]: pieces will be set per assignment instructions
+[^*:] pieces will be set per assignment instructions
 
 ## ADTs
 
