@@ -21,7 +21,7 @@ customer.o: customer.h customer.cpp person.o
 	g++ -c -std=c++11 -DDEBUG -g customer.cpp
 
 clean:
-	rm -rf runTests ODUrentals *.o *.dSYM
+	rm -rf runTests ODUrentals *.o *.dSYM *.zip
 
 zip:
-	zip -r Assg7_tbaty.zip . -i *.cpp *.h *.cbp 
+	zip -r Assg7_tbaty.zip . -i *.cpp *.h *.cbp Makefile -x test*

@@ -20,6 +20,8 @@ int main()
         cerr << "Error: required files not found.  Please ensure files " 
              << "\'staff.txt\' and '\'customers.txt\' "
              << "are in the current working directory" << endl;
+
+        return 1;
     }
 
     //declare, initialize pertinent list information
