@@ -51,11 +51,11 @@ Customer* readCustomers(istream& in, int& size)
             cerr << "line: " << line << endl;
         #endif
 
-		char fname[50];
-		char lname[50];
-		char car[50];
-		int isPreferred;
-		double balance = 0.0;
+        char fname[50];
+        char lname[50];
+        char car[50];
+        int isPreferred;
+        double balance = 0.0;
 
         istringstream linein(line);
         linein.get(fname, 50, ' ');

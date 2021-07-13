@@ -86,6 +86,7 @@ int main()
     customerPtr->setPreferred(true);
     cout << "customerPtr after changes: " << *customerPtr << endl;
 
+     delete customerPtr;
 
     return 0;
 }
