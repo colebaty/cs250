@@ -1,7 +1,10 @@
-# turnin: main.cpp person.o staff.o customer.o
-# 	g++ -std=c++11 -g main.cpp person.o staff.o customer.o
+turnin: clean main.cpp 
+	g++ -c -std=c++11 -g person.cpp
+	g++ -c -std=c++11 -g staff.cpp 
+	g++ -c -std=c++11 -g customer.cpp
+	g++ -std=c++11 -g main.cpp -o ODUrentals person.o staff.o customer.o
 
-dev: main.cpp person.o staff.o customer.o
+dev: clean main.cpp person.o staff.o customer.o
 	g++ -std=c++11 -DDEBUG -g -o ODUrentals main.cpp person.o staff.o customer.o
 
 test: test.cpp person.o staff.o customer.o
@@ -18,4 +21,7 @@ customer.o: customer.h customer.cpp person.o
 	g++ -c -std=c++11 -DDEBUG -g customer.cpp
 
 clean:
-	rm -f runTests ODUrentals *.o
+	rm -rf runTests ODUrentals *.o *.dSYM
+
+zip:
+	zip -r Assg7_tbaty.zip . -i *.cpp *.h *.cbp 
