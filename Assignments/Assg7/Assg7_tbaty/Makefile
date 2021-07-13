@@ -1,4 +1,4 @@
-turnin: clean main.cpp 
+turnin: main.cpp 
 	g++ -c -std=c++11 -g person.cpp
 	g++ -c -std=c++11 -g staff.cpp 
 	g++ -c -std=c++11 -g customer.cpp
@@ -7,9 +7,9 @@ turnin: clean main.cpp
 dev: clean main.cpp person.o staff.o customer.o
 	g++ -std=c++11 -DDEBUG -g -o ODUrentals main.cpp person.o staff.o customer.o
 
-test: test.cpp person.o staff.o customer.o
-	g++ -std=c++11 -DDEBUG -g -o runTests test.cpp person.o staff.o customer.o
-	./runTests
+# test: test.cpp person.o staff.o customer.o
+# 	g++ -std=c++11 -DDEBUG -g -o runTests test.cpp person.o staff.o customer.o
+# 	./runTests
 
 person.o: person.h person.cpp
 	g++ -c -std=c++11 -DDEBUG -g person.cpp

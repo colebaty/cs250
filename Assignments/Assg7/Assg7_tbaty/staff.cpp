@@ -106,7 +106,7 @@ void printStaffHeader(ostream& out)
         << setw(18) << "Car" << "|  " 
         << setw(20) << "Salary" << endl;
 
-    out << right << setfill('_') << setw(60) << " " << endl;
+    out << right << setfill('-') << setw(60) << " " << endl;
     out << setfill(' ');
 
 };

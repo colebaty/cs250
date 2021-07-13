@@ -117,7 +117,7 @@ void printCustomerHeader(ostream& out)
         << setw(18) << "Car" << "|  " 
         << setw(20) << "Balance" << endl;
 
-    out << right << setfill('_') << setw(70) << " " << endl;
+    out << right << setfill('-') << setw(70) << " " << endl;
     out << setfill(' ');
 
 }
