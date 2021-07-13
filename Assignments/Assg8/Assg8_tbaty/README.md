@@ -29,12 +29,18 @@ private:
     Board* _board;//interact with board through this reference
 
 public:
-    Player(Board* board);
+    Player();
+    Player(int numPieces = 4, int numTurns = 0; Board board);
     ~Player();
 
-    bool isValidSelection(int row, int col);
+    void initialize(int numPieces = 4, int numTurns = 0, Board board = nullptr);
+    bool isValidSelection(int& row, int col);
+    void choosePiece(int& row, int& col);
+    void clearPiece();
     bool hasPieces();
     int getNumRemainingPieces() { return _piecesOnBoard; };
+
+    void finishTurn() { _numTurns++; };
 ```
 
 ### Board
