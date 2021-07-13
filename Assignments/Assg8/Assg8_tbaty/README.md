@@ -1,6 +1,6 @@
 # Assignment 8 Notes
 
-## ADTs
+## Game Description
 
 A player has a 10x10 board.  The player places 4 O-Pieces and 8 X-Pieces on the board; additionally two G-pieces are placed on the board adjacent to each other.[^*]. Using as few moves as possible, the player moves all O-Pieces off the board by reaching the G-Pieces according to the following rules:
 
@@ -19,6 +19,8 @@ Once an O-piece reaches a G-piece, it is removed from the board and the player's
 The game is won when the Player has successfully moved all O-Pieces off the board by reaching G-Pieces.
 
 [^*]: pieces will be set per assignment instructions
+
+## ADTs
 
 ### Player
 
