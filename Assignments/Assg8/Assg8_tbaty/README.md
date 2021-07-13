@@ -40,7 +40,7 @@ public:
 ### Board
 ```cpp
 enum Direction : char {UP = 'w', DOWN = 's', LEFT = 'a', RIGHT = 'd'};
-enum Piece : char { PLAYER = 'O', OBSTACLE = 'X', EMPTY = ' '};
+enum Piece : char { PLAYER = 'O', OBSTACLE = 'X', EMPTY = ' ', GOAL = 'G'};
 
 private:
     char _board[10][10];//row, column
