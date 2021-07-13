@@ -12,7 +12,7 @@ person.o: person.h person.cpp
 	g++ -c -std=c++11 -DDEBUG -g person.cpp
 
 staff.o: staff.h staff.cpp person.o
-	g++ -c -std=c++11 -DDEBUG -g staff.cpp person.o
+	g++ -c -std=c++11 -DDEBUG -g staff.cpp 
 
 customer.o: customer.h customer.cpp person.o
 	g++ -c -std=c++11 -DDEBUG -g customer.cpp
