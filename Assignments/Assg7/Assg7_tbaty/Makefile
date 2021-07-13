@@ -24,4 +24,4 @@ clean:
 	rm -rf runTests ODUrentals *.o *.dSYM *.zip
 
 zip:
-	zip -r Assg7_tbaty.zip . -i *.cpp *.h *.cbp Makefile -x test*
+	zip -r Assg7_tbaty.zip . -i *.cpp *.h *.cbp *.txt Makefile -x test*
