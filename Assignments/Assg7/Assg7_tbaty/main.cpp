@@ -136,12 +136,6 @@ Customer* readCustomers(istream& in, int& size)
     Customer *list = new Customer[size];
 
     // read each remaining line; populate array
-    char fname[50];
-    char lname[50];
-    char car[50];
-    int isPreferred;
-    double balance = 0.0;
-
     string line = "";
     getline(in, line);
 
@@ -152,12 +146,19 @@ Customer* readCustomers(istream& in, int& size)
             cerr << "line: " << line << endl;
         #endif
 
+		char fname[50];
+		char lname[50];
+		char car[50];
+		int isPreferred;
+		double balance = 0.0;
+
         istringstream linein(line);
         linein.get(fname, 50, ' ');
         linein >> ws;//advance linein; get() does not extract delimiter
         linein.get(lname, 50, ' ');
         linein >> ws;
         linein >> isPreferred;
+        linein >> ws;
         linein.get(car, 50, ' ');
         linein >> ws;
         linein >> balance;
@@ -172,7 +173,7 @@ Customer* readCustomers(istream& in, int& size)
         #endif
         
         list[i] = Customer(string(fname), string(lname), string(car), 
-                                  (isPreferred == 1), balance);
+                                  balance, (isPreferred == 1));
         #ifdef DEBUG
             cerr << "list[" << i << "]: " << list[i] << endl << endl;
         #endif
