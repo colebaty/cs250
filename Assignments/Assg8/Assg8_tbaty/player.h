@@ -48,6 +48,16 @@ class Player
          */
         bool choosePiece(int& row, int& col);
 
+        /**
+         * @brief move the given piece in the indicated direction
+         * 
+         * @param row 
+         * @param col 
+         * @param dir
+         * @return true 
+         * @return false 
+         */
+        char movePiece(int& row, int& col, char dir);
 
         /**
          * @brief removes a piece from the board after it has reached a goal piece.
@@ -60,10 +70,11 @@ class Player
         int getNumRemainingPieces() { return _piecesOnBoard; };
 
         /**
-         * @brief increments the number of turns
+         * @brief increments the number of turns. if a G-piece has been reached
+         * this turn, decrement the number of pieces on the board
          * 
          */
-        void finishTurn() { _numTurns++; };
+        void finishTurn(char result);
 
         int getNumTurns() { return _numTurns; };
 };

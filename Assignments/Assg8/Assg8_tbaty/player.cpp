@@ -51,3 +51,15 @@ bool Player::choosePiece(int& row, int& col)
 {
     return isValidSelection(row, col);
 }
+
+char Player::movePiece(int& row, int& col, char dir)
+{
+    char piece = _board->getSquare(row, col);
+    return _board->movePiece(piece, row, col, dir);
+}
+
+void Player::finishTurn(char result)
+{
+    _numTurns++;
+    if (result == GOAL) clearPiece();
+}

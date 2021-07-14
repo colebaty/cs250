@@ -1,10 +1,10 @@
-# turnin: main.cpp 
-# 	g++ -c -std=c++11 -g person.cpp 
-# 	g++ -c -std=c++11 -g board.cpp
-# 	g++ -std=c++11 -g -o almostChess main.cpp player.o board.o
+turnin: main.cpp 
+	g++ -c -std=c++11 -g player.cpp 
+	g++ -c -std=c++11 -g board.cpp
+	g++ -std=c++11 -g -o almostChess main.cpp player.o board.o
 
-# dev: clean main.cpp person.o board.o
-# 	g++ -std=c++11 -DDEBUG -g -o almostChess main.cpp person.o staff.o customer.o
+dev: clean main.cpp player.o board.o
+	g++ -std=c++11 -DDEBUG -g -o almostChess main.cpp player.o board.o
 
 test: test.cpp player.o 
 	g++ -std=c++11 -DDEBUG -g -o runTests test.cpp player.o board.o

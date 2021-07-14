@@ -40,7 +40,7 @@ public:
     bool hasPieces();
     int getNumRemainingPieces() { return _piecesOnBoard; };
 
-    void finishTurn() { _numTurns++; };
+    void finishTurn();
 ```
 
 ### Board
