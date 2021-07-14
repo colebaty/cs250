@@ -45,7 +45,8 @@ void playGame(Player& p, Board* b)
         {
             if (!cin) 
             {
-                cin.clear();
+                cin.ignore('\n', 100);
+                // cin.clear();
             }
             cout << "Invalid selection, please try again." << endl;
             cout << "Player, please choose a piece (ex. 2 1): ";
