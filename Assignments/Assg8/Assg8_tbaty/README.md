@@ -107,3 +107,9 @@ X-Pieces may move one square horizontally or vertically, provided the target is 
     //wrap-up
         cout << "puzzle completed in " << player.getNumMoves() << " moves" << endl;
 ```
+
+## Misc
+
+```
+~(p ^ q) === ~p & ~q
+```

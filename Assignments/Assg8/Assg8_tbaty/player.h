@@ -38,7 +38,8 @@ class Player
         bool isValidSelection(int row, int col);
 
         /**
-         * @brief select a piece on the board
+         * @brief select a piece on the board. returns false if the selected square
+         * does not contain an O-piece or an X-piece
          * 
          * @param row 
          * @param col 
