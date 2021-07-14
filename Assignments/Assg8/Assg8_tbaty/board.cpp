@@ -40,7 +40,6 @@ void Board::initialize()
     setSquare(GOAL, 0, 5);
 }
 
-//stub to test Player
 char Board::getSquare(int row, int col)
 {
     return _board[row][col];
@@ -106,11 +105,15 @@ bool Board::isNeighborFree(char piece, int row, int col, char dir)
     switch (piece)
     {
     case PLAYER:
-        // if (neighbor != EMPTY && neighbor != GOAL) return false;
-        if (neighbor == EMPTY || neighbor == GOAL) return true;
-        else return false;
+        {
+            // if (neighbor != EMPTY && neighbor != GOAL) return false;
+            if (neighbor == EMPTY || neighbor == GOAL) return true;
+            else return false;
+        }
     case OBSTACLE:
-        if (neighbor != EMPTY) return false;
+        {
+            if (neighbor != EMPTY) return false;
+        }
     }
 
     return true;

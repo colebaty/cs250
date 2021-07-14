@@ -130,9 +130,17 @@ int main()
 
         #ifdef IDEBUG
             cout << "interactive debug enabled" << endl
-                 << "select a piece ";
+                 << "new board created" << endl;
+            
+            Board newboard;
+            newboard.displayBoard();
+
+            cout << "select a piece ";
                 
+            #ifndef PDBG
             int row, col;
+            #endif 
+
             char dir;
 
             cin >> row >> col;
@@ -140,11 +148,13 @@ int main()
             cout << "direction to move (w a s d): ";
             cin >> dir;
             cout << endl;
-
-            while (board.movePiece(PLAYER, row, col, dir) != INVALID)
+            char piece = newboard.getSquare(row, col);
+            char move = newboard.movePiece(PLAYER, row, col, dir);
+            cout << "target: " << move << endl;
+            while (move != INVALID || !cin)
             {
                 #ifdef SHOWBOARD
-                    board.displayBoard();
+                    newboard.displayBoard();
                 #endif
                 cout << "select a piece ";
                 cin >> row >> col;
@@ -153,11 +163,13 @@ int main()
                 cout << "direction to move (w a s d): ";
                 cin >> dir;
                 cout << endl;
+
+                piece = newboard.getSquare(row, col);
+                move = newboard.movePiece(piece, row, col, dir);
+                cout << "target: " << move << endl;
             }
 
         #endif
-
-
     #endif
 
     return 0;
