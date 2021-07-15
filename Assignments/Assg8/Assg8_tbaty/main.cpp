@@ -37,11 +37,11 @@ void playGame(Player& p, Board* b)
     //while not done (player.hasPieces())
     while (p.hasPieces())
     {
-        //player sleects piece
+        //player selects piece
         cout << "Player, please choose a piece (ex. 2 1): ";
         cin >> row >> col;
 
-        while (!p.choosePiece(row, col))
+        while (!p.choosePiece(row, col) || !cin)
         {
             if (!cin) 
             {
