@@ -41,12 +41,12 @@ void playGame(Player& p, Board* b)
         cout << "Player, please choose a piece (ex. 2 1): ";
         cin >> row >> col;
 
-        while (!p.choosePiece(row, col) || !cin)
+        while (!p.choosePiece(row, col))
         {
             if (!cin) 
             {
                 cin.ignore('\n', 100);
-                // cin.clear();
+                cin.clear();
             }
             cout << "Invalid selection, please try again." << endl;
             cout << "Player, please choose a piece (ex. 2 1): ";
