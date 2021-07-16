@@ -13,11 +13,33 @@ class Player
          */
         bool _playerOne;
 
-        void initialize(bool player);
-
     public:
-        Player(bool playerOne = true);
-}
+        Player();
+        /**
+         * @brief Construct a new Player object.  The only way to set a Player
+         * Two object is to explicitly call this constructor with 'false'
+         * 
+         * @param playerOne 
+         */
+        Player(bool playerOne);
+
+        /**
+         * @brief permits the player instance to identify itself as either
+         * Player One or Player Two
+         * 
+         * @return true if this instance is Player One
+         * @return false if this instsance is Player Two
+         */
+        bool isPlayerOne() { return _playerOne == true; };
+
+        /**
+         * @brief sets the value of die to an integer on [1, 5]. die must be 
+         * declared in main and is passed to each player.
+         * 
+         * @param die 
+         */
+        void rollDie(int& die);
+};
 
 
 
