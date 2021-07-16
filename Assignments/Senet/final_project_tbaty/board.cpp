@@ -101,11 +101,12 @@ void Board::display(ostream& out)
 {
     /*
         TODO
-            [ ] Fill in top and bottom rows. Wait until gameplay implementation 
+            [X] Fill in top and bottom rows. Wait until gameplay implementation 
                 is finished because you'll need to account for cell expansion
                 that will not be present in normal gameplay.
     */
     //cells | A| 1|
+    printRow();
     for (int i = 0; i < 10; i++)
     {
         #ifdef EMPTIES
@@ -120,6 +121,7 @@ void Board::display(ostream& out)
     }
 
     out << "| " << endl;
+    printRow();
 
     for (int i = 19; i > 9; i--)
     {
@@ -135,6 +137,7 @@ void Board::display(ostream& out)
     }
 
     out << "| " << endl;
+    printRow();
 
     for (int i = 20; i < 30; i++)
     {
@@ -152,5 +155,15 @@ void Board::display(ostream& out)
     }
 
     out << "| " << endl;
+    printRow();
 
+}
+
+void Board::printRow(ostream& out)
+{
+    #ifdef EMPTIES
+        out << "-----------------------------------------" << endl;
+    #else
+        out << "-------------------------------" << endl;
+    #endif
 }

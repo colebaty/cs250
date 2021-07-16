@@ -15,6 +15,8 @@ class Board
          */
         void initialize();
 
+        void printRow(std::ostream& out=std::cout);
+
     public:
         Board();
 

@@ -4,3 +4,6 @@ boardTest: board.o boardTest.cpp
 
 board.o: board.h board.cpp senet_constants.h
 	g++-11 -g -DDEBUG -c board.h board.cpp senet_constants.h
+
+clean:
+	rm -rf *.o *.gch *Test
