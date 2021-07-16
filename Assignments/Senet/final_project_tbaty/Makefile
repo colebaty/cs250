@@ -7,10 +7,10 @@ boardTest: board.o boardTest.cpp
 	./boardTest
 
 board.o: board.h board.cpp senet_constants.h
-	g++-11 -g -DDEBUG -c board.h board.cpp senet_constants.h
+	g++-11 -g -DDEBUG -c board.cpp senet_constants.h
 
 player.o: player.h player.cpp senet_constants.h
-	g++-11 -g -DDEBUG -c board.h player.cpp senet_constants.h
+	g++-11 -g -DDEBUG -c player.cpp senet_constants.h
 
 clean:
 	rm -rf *.o *.gch *Test *.dSYM
