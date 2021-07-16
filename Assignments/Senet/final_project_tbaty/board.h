@@ -1,13 +1,8 @@
 #ifndef __BOARD_H__
 #define __BOARD_H__
 
-enum PlayerOnePiece : char {ONE = '1', TWO = '2', THREE = '3', FOUR = '4', FIVE = '5'};
-enum PlayerTwoPiece : char {A = 'A', B = 'B', C = 'C', D = 'D', E = 'E'};
-enum Trap : int {TRAP = 27, LANDING = 15};
-
-const char TRAP_PIECE = 'X';
-const char EMPTY = ' ';
-const char INVALID = '0';
+#include <iostream>
+#include "senet_constants.h"
 
 class Board
 {
@@ -40,7 +35,7 @@ class Board
          * @return INVALID if a piece may not be set at the square; the value of 
          * the square in all other cases;
          */
-        char setSquare(int& square, char piece);
+        char setSquare(const int& square, char piece, bool capture = false);
 
         /**
          * @brief determines whether a piece belongs to Player 1. Assumes you're 
@@ -51,6 +46,10 @@ class Board
          * @return false pice belongs to Player 2
          */
         bool belongsTo(char piece);
+
+        void swap(int a, int b);
+
+        void display(std::ostream& out=std::cout);
 
 };
 
