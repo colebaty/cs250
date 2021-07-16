@@ -49,5 +49,18 @@ void Referee::setWinner(char& winner)
 //stub
  char Referee::validateMove(Board *b, Player *p, int& origin, int& target)
  {
+     //if target not empty
+        
      return INVALID;
+ }
+
+ bool Referee::isFriendlySquare(Board *b, Player *p, int square)
+ {
+     bool playerOne = p->isPlayerOne();
+     char piece = b->getSquare(square);
+
+     if (b->belongsTo(piece) == playerOne)
+        return true;
+    
+    return false;
  }

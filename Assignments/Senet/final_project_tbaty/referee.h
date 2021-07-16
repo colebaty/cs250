@@ -17,8 +17,7 @@ class Referee
     public:
         Referee();
     
-        bool isFriendlySquare(int square, bool playerOne);
-        void initialize(Board* b, Player* p1, Player* p2);
+        bool isFriendlySquare(Board *b, Player *p, int square);
         /**
          * @brief returns true if _winner != EMPTY. Assumes _winner is only set
          * to P1 or P2

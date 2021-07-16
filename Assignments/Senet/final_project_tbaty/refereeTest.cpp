@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 #include "referee.h"
 #include "board.h"
@@ -35,6 +36,19 @@ int main()
         }
     }
 
+    cout << "testing for friendlies" << endl;
+    b->display();
+    assert(r->isFriendlySquare(b, p1, 1));//p1 pieces start on odd squares
+    cout << "board[1]";
+    r->isFriendlySquare(b, p1, 1) ? cout << " is "
+                                  : cout << " is not ";
+    cout << "friendly to p1" << endl;
+
+    assert(!r->isFriendlySquare(b, p1, 2));//p2 pieces start on even squares
+    cout << "board[2]";
+    r->isFriendlySquare(b, p1, 2) ? cout << " is "
+                                  : cout << " is not ";
+    cout << "friendly to p1" << endl;
 
     return 0;
 }

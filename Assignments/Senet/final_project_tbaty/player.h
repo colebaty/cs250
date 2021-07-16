@@ -2,6 +2,7 @@
 #define __PLAYER_H__
 
 #include "board.h"
+#include "referee.h"
 #include "senet_constants.h"
 
 class Player
@@ -13,7 +14,7 @@ class Player
          * 
          */
         bool _playerOne;
-        int _numPieces;
+        int _score;
 
     public:
         Player();
@@ -43,6 +44,15 @@ class Player
         void rollDie(int& die);
 
         /**
+         * @brief returns INVALID unless player selects friendly piece; returns
+         * square location otherwise;
+         * 
+         * @param square 
+         * @return int 
+         */
+        int choosePiece(Board *b, Referee *r, int square);
+
+        /**
          * @brief moves the piece at the specified origin square according to
          * the number rolled on the die.  Assumes Referee::isValidMove() returns
          * true.
@@ -55,14 +65,24 @@ class Player
         int movePiece(Board *b, int origin, int numRolled);
 
         /**
-         * @brief returns true if _numPieces > 0
+         * @brief returns true if _score > 0
          * 
-         * @return true numPieces > 0
+         * @return true score > 0
          * @return false 
          */
-        bool hasPieces() { return _numPieces > 0; };
+        bool hasPieces() { return _score > 0; };
 
-        void clearPiece(Board *b, int square) { _numPieces--; };
+        /**
+         * @brief stub for clearPiece()
+         * 
+         * todo
+         *  [ ] clear piece from board
+         *  [x] decrement score
+         * 
+         * @param b 
+         * @param square 
+         */
+        void clearPiece(Board *b, int square);
 
 };
 
