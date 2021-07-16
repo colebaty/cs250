@@ -1,5 +1,5 @@
-refereeTest: referee.o refereeTest.cpp
-	g++-11 -g -DDEBUG -o refereeTest refereeTest.cpp referee.o
+refereeTest: referee.o refereeTest.cpp board.o player.o
+	g++-11 -g -DDEBUG -o refereeTest refereeTest.cpp referee.o board.o player.o
 	./refereeTest
 
 playerTest: player.o playerTest.cpp

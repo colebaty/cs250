@@ -13,6 +13,7 @@ class Player
          * 
          */
         bool _playerOne;
+        int _numPieces;
 
     public:
         Player();
@@ -42,14 +43,26 @@ class Player
         void rollDie(int& die);
 
         /**
-         * @brief 
+         * @brief moves the piece at the specified origin square according to
+         * the number rolled on the die.  Assumes Referee::isValidMove() returns
+         * true.
          * 
          * @param b 
          * @param square 
          * @param numRolled 
-         * @return int 
+         * @return int the index of the target square
          */
-        int movePiece(Board *b, int square, int numRolled);
+        int movePiece(Board *b, int origin, int numRolled);
+
+        /**
+         * @brief returns true if _numPieces > 0
+         * 
+         * @return true numPieces > 0
+         * @return false 
+         */
+        bool hasPieces() { return _numPieces > 0; };
+
+        void clearPiece(Board *b, int square) { _numPieces--; };
 
 };
 

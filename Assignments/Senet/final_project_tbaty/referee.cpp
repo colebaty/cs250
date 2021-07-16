@@ -7,28 +7,7 @@ using namespace std;
 
 Referee::Referee()
 {
-    _b = nullptr;
-    _p1 = nullptr;
-    _p2 = nullptr;
-}
-
-Referee::Referee(Board* b, Player* p1, Player* p2)
-{
-    initialize(b, p1, p2);
-}
-
-Referee::~Referee()
-{
-    delete _b;
-    delete _p1;
-    delete _p2;
-}
-
-void Referee::initialize(Board* b, Player* p1, Player* p2)
-{
-    _b = b;
-    _p1 = p1;
-    _p2 = p2;
+    _winner = EMPTY;
 }
 
 void Referee::announceWinnner(char winner, ostream& out)
@@ -44,5 +23,31 @@ void Referee::announceWinnner(char winner, ostream& out)
         out << "Two";
         break;
     }
-    out << "wins!";
+    out << " wins!" << endl;
 }
+
+void Referee::setWinner(char& winner)
+ {
+    _winner = winner;
+ }
+
+ bool Referee::isWinner()
+ {
+     return _winner != EMPTY;
+ }
+
+ char Referee::checkForWinner(Board* b, Player* p1, Player* p2)
+ {
+    if (!p1->hasPieces())
+        _winner = P1;
+    else if (!p2->hasPieces())
+        _winner = P2;
+
+    return _winner;
+ }
+
+//stub
+ char Referee::validateMove(Board *b, Player *p, int& origin, int& target)
+ {
+     return INVALID;
+ }

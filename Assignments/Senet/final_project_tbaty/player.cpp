@@ -6,10 +6,13 @@ using namespace std;
 Player::Player()
 {
     _playerOne = true;
+    _numPieces = 5;
 }
 
 Player::Player(bool playerOne)
 {
+    _numPieces = 5;
+
     if (!playerOne)
         _playerOne = false;
     else
@@ -21,7 +24,6 @@ void Player::rollDie(int& die)
     die = rand() % 5 + 1;
 }
 
-int Player::movePiece(Board *b, int square, int numRolled)
+int Player::movePiece(Board *b, int origin, int numRolled)
 {
-
 }
