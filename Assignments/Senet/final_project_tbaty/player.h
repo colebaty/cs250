@@ -1,6 +1,7 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
+#include "board.h"
 #include "senet_constants.h"
 
 class Player
@@ -39,6 +40,17 @@ class Player
          * @param die 
          */
         void rollDie(int& die);
+
+        /**
+         * @brief 
+         * 
+         * @param b 
+         * @param square 
+         * @param numRolled 
+         * @return int 
+         */
+        int movePiece(Board *b, int square, int numRolled);
+
 };
 
 

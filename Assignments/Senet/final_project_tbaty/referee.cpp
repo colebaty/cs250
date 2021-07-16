@@ -30,3 +30,19 @@ void Referee::initialize(Board* b, Player* p1, Player* p2)
     _p1 = p1;
     _p2 = p2;
 }
+
+void Referee::announceWinnner(char winner, ostream& out)
+{
+    out << "Player ";
+    switch (winner)
+    {
+    case P1:
+        out << "One";
+        break;
+    
+    case P2:
+        out << "Two";
+        break;
+    }
+    out << "wins!";
+}

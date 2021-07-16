@@ -20,3 +20,8 @@ void Player::rollDie(int& die)
 {
     die = rand() % 5 + 1;
 }
+
+int Player::movePiece(Board *b, int square, int numRolled)
+{
+
+}
