@@ -14,6 +14,8 @@ class Referee
 
         void setWinner(char& winner);
 
+        char findMoveAtTarget(Player *p, int target);
+
     public:
         Referee();
     

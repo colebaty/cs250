@@ -16,6 +16,9 @@ class Player
         bool _playerOne;
         int _score;
 
+        bool isProtected(Board *b, int square);
+
+
     public:
         Player();
         /**
@@ -44,8 +47,8 @@ class Player
         void rollDie(int& die);
 
         /**
-         * @brief returns INVALID unless player selects friendly piece; returns
-         * square location otherwise;
+         * @brief returns INVALID unless player selects unblocked friendly piece; 
+         * returns square location otherwise;
          * 
          * @param square 
          * @return int 
@@ -62,7 +65,7 @@ class Player
          * @param numRolled 
          * @return int the index of the target square
          */
-        int movePiece(Board *b, int origin, int numRolled);
+        void movePiece(Board *b, int origin, int target);
 
         /**
          * @brief returns true if _score > 0

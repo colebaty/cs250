@@ -54,6 +54,8 @@ int main()
     p2->isPlayerOne() ? cout << "is not"
                       : cout << "is";
     cout << " Player Two" << endl;
+
+    cout << "----- Player Tests with Board -----" << endl;
     
     return 0;
 }
