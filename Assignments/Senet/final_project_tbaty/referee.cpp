@@ -1,7 +1,7 @@
-#include "board.h"
-#include "player.h"
+// #include "board.h"
+// #include "player.h"
 #include "referee.h"
-#include "senet_constants.h"
+// #include "senet_constants.h"
 
 using namespace std;
 

@@ -24,7 +24,7 @@ void Player::rollDie(int& die)
     die = rand() % 5 + 1;
 }
 
-int Player::choosePiece(Board *b, Referee *r, int square)
+int Player::choosePiece(Board *b, int square)
 {
     if (b->getSquare(square) == EMPTY)
         return INVALID;
@@ -35,6 +35,8 @@ int Player::choosePiece(Board *b, Referee *r, int square)
     
     if (b->belongsTo(piece) != (this->isPlayerOne() == _playerOne))
         return INVALID;
+    
+    return INVALID;
     
 }
 

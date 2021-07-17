@@ -2,7 +2,6 @@
 #define __PLAYER_H__
 
 #include "board.h"
-#include "referee.h"
 #include "senet_constants.h"
 
 class Player
@@ -53,7 +52,7 @@ class Player
          * @param square 
          * @return int 
          */
-        int choosePiece(Board *b, Referee *r, int square);
+        int choosePiece(Board *b, int square);
 
         /**
          * @brief moves the piece at the specified origin square according to

@@ -5,6 +5,8 @@
 
 #include "player.h"
 #include "board.h"
+// #include "referee.h"
+#include "senet_constants.h"
 
 using namespace std;
 
@@ -56,6 +58,9 @@ int main()
     cout << " Player Two" << endl;
 
     cout << "----- Player Tests with Board -----" << endl;
+    Board *b = new Board();
+
+    b->display();
     
     return 0;
 }

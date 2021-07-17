@@ -3,22 +3,22 @@
 
 #include <iostream> 
 
-#include "senet_constants.h"
-#include "player.h"
 #include "board.h"
+#include "player.h"
+#include "senet_constants.h"
 
 class Referee
 {
     private:
         char _winner;
 
-        void setWinner(char& winner);
-
-        char findMoveAtTarget(Player *p, int target);
-
     public:
         Referee();
+
+        void setWinner(char& winner);
     
+        char findMoveAtTarget(Board *b, Player *p, int target);
+
         bool isFriendlySquare(Board *b, Player *p, int square);
         /**
          * @brief returns true if _winner != EMPTY. Assumes _winner is only set
