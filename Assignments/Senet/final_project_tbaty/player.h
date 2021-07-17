@@ -17,6 +17,14 @@ class Player
 
         bool isProtected(Board *b, int square);
 
+        /**
+         * @brief called after a piece reaches TARGET. 
+         * clears piece from board. decrements score.
+         * 
+         * @param b 
+         * @param square 
+         */
+        void clearPiece(Board *b, int square);
 
     public:
         Player();
@@ -67,24 +75,19 @@ class Player
         void movePiece(Board *b, int origin, int target);
 
         /**
-         * @brief returns true if _score > 0
+         * @brief returns true if _score < 5
          * 
-         * @return true score > 0
+         * @return true score < 5
          * @return false 
          */
-        bool hasPieces() { return _score > 0; };
+        bool hasPieces() { return _score < 5; };
 
         /**
-         * @brief stub for clearPiece()
+         * @brief returns the Player's score
          * 
-         * todo
-         *  [ ] clear piece from board
-         *  [x] decrement score
-         * 
-         * @param b 
-         * @param square 
+         * @return int 
          */
-        void clearPiece(Board *b, int square);
+        int getScore() { return _score; };
 
 };
 

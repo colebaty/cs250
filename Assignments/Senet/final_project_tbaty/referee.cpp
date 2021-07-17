@@ -1,7 +1,4 @@
-// #include "board.h"
-// #include "player.h"
 #include "referee.h"
-// #include "senet_constants.h"
 
 using namespace std;
 
@@ -27,40 +24,39 @@ void Referee::announceWinnner(char winner, ostream& out)
 }
 
 void Referee::setWinner(char& winner)
- {
-    _winner = winner;
- }
+{
+_winner = winner;
+}
 
- bool Referee::isWinner()
- {
-     return _winner != EMPTY;
- }
+bool Referee::isWinner()
+{
+    return _winner != EMPTY;
+}
 
- char Referee::checkForWinner(Board* b, Player* p1, Player* p2)
- {
-    if (!p1->hasPieces())
-        _winner = P1;
-    else if (!p2->hasPieces())
-        _winner = P2;
+char Referee::checkForWinner(Board* b, Player* p1, Player* p2)
+{
+if (!p1->hasPieces())
+    _winner = P1;
+else if (!p2->hasPieces())
+    _winner = P2;
 
-    return _winner;
- }
+return _winner;
+}
 
-//stub
- char Referee::validateMove(Board *b, Player *p, int& origin, int& target)
- {
-     //if target not empty
-        
-     return INVALID;
- }
-
- bool Referee::isFriendlySquare(Board *b, Player *p, int square)
- {
-     bool playerOne = p->isPlayerOne();
-     char piece = b->getSquare(square);
-
-     if (b->belongsTo(piece) == playerOne)
-        return true;
+int Referee::validateMove(Board *b, Player *p, int& origin, int numRolled)
+{
+    //if target not empty
     
-    return false;
- }
+    return INVALID;
+}
+
+bool Referee::isFriendlySquare(Board *b, Player *p, int square)
+{
+    bool playerOne = p->isPlayerOne();
+    char piece = b->getSquare(square);
+
+    if (b->belongsTo(piece) == playerOne)
+    return true;
+
+return false;
+}

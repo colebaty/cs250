@@ -6,12 +6,12 @@ using namespace std;
 Player::Player()
 {
     _playerOne = true;
-    _score = 5;
+    _score = 0;
 }
 
 Player::Player(bool playerOne)
 {
-    _score = 5;
+    _score = 0;
 
     if (!playerOne)
         _playerOne = false;
@@ -26,15 +26,25 @@ void Player::rollDie(int& die)
 
 int Player::choosePiece(Board *b, int square)
 {
+    if (square < 0 || square > 29)
+        return INVALID;
+
     if (b->getSquare(square) == EMPTY)
         return INVALID;
 
     char piece = b->getSquare(square);
-    if (piece != EMPTY && (b->belongsTo(piece) == _playerOne))
-        return square;
-    
-    if (b->belongsTo(piece) != (this->isPlayerOne() == _playerOne))
+    if (b->belongsTo(piece) != this->isPlayerOne())
         return INVALID;
+
+    char next = b->getSquare(square + 1);
+    #ifdef DEBUG
+        cout << "\tpiece: " << piece << endl;
+        cout << "\tnext: " << next << endl;
+    #endif
+    if (piece != EMPTY 
+        && (b->belongsTo(piece) == this->isPlayerOne())
+        && (next == EMPTY))
+        return square;
     
     return INVALID;
     
@@ -48,9 +58,19 @@ void Player::movePiece(Board *b, int origin, int target)
             - CAPTURE is swapping the contents of two occcupied squares
 
         The Referee will validate each move before it is permitted, so
-        there is no need for proofing here.
+        there is no need for proofing here. Validation includes trap square
+        behavior.
     */
-    b->swap(origin, target);
+    
+    switch (target)
+    {
+    case FINISH:
+        clearPiece(b, origin);
+        break;
+    
+    default:
+        b->swap(origin, target);
+    }
 }
 
 void Player::clearPiece(Board *b, int square)

@@ -12,13 +12,13 @@ class Referee
     private:
         char _winner;
 
-    public:
-        Referee();
-
         void setWinner(char& winner);
-    
+
         char findMoveAtTarget(Board *b, Player *p, int target);
 
+    public:
+        Referee();
+    
         bool isFriendlySquare(Board *b, Player *p, int square);
         /**
          * @brief returns true if _winner != EMPTY. Assumes _winner is only set
@@ -45,15 +45,17 @@ class Referee
         void announceWinnner(char winner, std::ostream& out = std::cout);
 
         /**
-         * @brief returns INVALID if move cannot be completed.
+         * @brief returns INVALID if no move possible. otherwise, returns
+         * the index of the target square. governs trap square behavior, as well
+         * as dice roll values which enable the player to roll again.
          * 
          * @param b 
          * @param p 
          * @param origin 
-         * @param target 
-         * @return char 
+         * @param numRolled 
+         * @return int 
          */
-        char validateMove(Board *b, Player *p, int& origin, int& target);
+        int validateMove(Board *b, Player *p, int& origin, int numRolled);
 
 
 };

@@ -61,6 +61,46 @@ int main()
     Board *b = new Board();
 
     b->display();
+    cout << "p1 choosing square 1, expecting INVALID" << endl;
+    int choice = p1->choosePiece(b, 1);
+    assert(choice == INVALID);
+    cout << "p1 unable to select square 1" << endl;
+
+    cout << "p2 choosing square 1; expect INVALID" << endl;
+    choice = p2->choosePiece(b, 1);
+    assert(choice == INVALID);
+    cout << "p2 unable to select square 1" << endl;
+
+    cout << "p1 choosing square 9, expecting 9" << endl;
+    choice = p1->choosePiece(b, 9);
+    assert(choice == 9);
+    cout << "p1 successfully selected piece at square 9" << endl;
+
+    cout << "p2 choosing square 9, expecting INVALID" << endl;
+    choice = p2->choosePiece(b, 9);
+    assert (choice == INVALID);
+    cout << "p2 unable to select piece at square 9" << endl;
+
+    cout << "p2 choosing square 8, expecting INVALID" << endl;
+    choice = p2->choosePiece(b, 8);
+    assert (choice = INVALID);
+    cout << "p2 unable to select piece at square 8" << endl;
+
+    assert(p1->getScore() == 0);
+    cout << "p1 score (expecting 0): " << p1->getScore() << endl;
+    cout << "p1 moves piece at square 9 to FINISH square" << endl;
+    p1->movePiece(b, 9, FINISH);
+    assert(p1->getScore() == 1);
+    cout << "p1 score (expecting 1): " << p1->getScore() << endl;
+
+    b->display();
+
+
+
+
+    delete b;
+    delete p1;
+    delete p2;
     
     return 0;
 }
