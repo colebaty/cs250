@@ -43,11 +43,25 @@ else if (!p2->hasPieces())
 return _winner;
 }
 
-int Referee::validateMove(Board *b, Player *p, int& origin, int numRolled)
+int Referee::validateMove(Board *b, Player *p, int origin, int numRolled)
 {
-    //if target not empty
-    
-    return INVALID;
+    int target = origin + numRolled;
+
+    if (numRolled == 5) ++target;//a roll of 5 means move 6 squares
+
+    if (target > FINISH) return FINISH;
+    if (target == TRAP) 
+    {
+        target = LANDING + 1;
+        findLanding(b, target);
+        return target;
+    }
+
+    //if target not empty && target is friendly
+    if (b->getSquare(target) != EMPTY && isFriendlySquare(b, p, target))
+        return INVALID;
+
+    return target;
 }
 
 bool Referee::isFriendlySquare(Board *b, Player *p, int square)
@@ -59,4 +73,30 @@ bool Referee::isFriendlySquare(Board *b, Player *p, int square)
     return true;
 
 return false;
+}
+
+bool Referee::rollAgain(const int& die)
+{
+    switch (die)
+    {
+    case 1:
+    case 4:
+    case 5: 
+        return true;
+        break;
+    
+    default:
+        return false;
+    }
+
+    return false;
+}
+
+void Referee::findLanding(Board *b, int& square)
+{
+    //base case - square is unoccupied
+    if (b->getSquare(square) == EMPTY)
+        return;
+    else 
+        findLanding(b, ++square);
 }

@@ -14,7 +14,17 @@ class Referee
 
         void setWinner(char& winner);
 
-        char findMoveAtTarget(Board *b, Player *p, int target);
+        /**
+         * @brief called only in the special case that a player's piece lands
+         * on the trap square.  since the trap square behavior is governed by
+         * the referee, and since capture is not possible during a trap move,
+         * supplying the board is sufficient. reference squares are implied 
+         * in a trap move, and their definitions are supplied in senet_constants.h
+         * 
+         * @param b 
+         * @param square 
+         */
+        void findLanding(Board *b, int& square);
 
     public:
         Referee();
@@ -55,7 +65,17 @@ class Referee
          * @param numRolled 
          * @return int 
          */
-        int validateMove(Board *b, Player *p, int& origin, int numRolled);
+        int validateMove(Board *b, Player *p, int origin, int numRolled);
+
+        /**
+         * @brief if Player rolls a 1, 4, or 5, they roll again after moving their
+         * piece
+         * 
+         * @param die 
+         * @return true the player rolls again
+         * @return false 
+         */
+        bool rollAgain(const int& die);
 
 
 };

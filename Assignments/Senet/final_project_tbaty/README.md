@@ -168,33 +168,56 @@ void Player::rollDie(int& die)
 
 - Interacts with Board, Player instances through pointer
 
-## Piece Movement
+#### Move validation
+
+Referee receives (board), player, player origin square, num rolled on die. Player
+origin square has been validated by `choosePiece()` method in Player ADT.
+
+```cpp
+//referee receives (board), player, player origin square, num rolled on die
+```
+
+## Piece Movement {#pieceMovement}
+
+Individual piece movement should be validated by referee. That is, given the board
+the player, the origin square, and the number rolled on the die, the Referee 
+determines if the target square is a valid move, i.e. either unoccupied or occupied
+by the opponent (capture).
+
+Referee determines whether to roll again.
 
 ```cpp
 
-switch (referee.rollDie())
+int target = origin + numRolled;
+bool rollAgain = false;
+int result = INVALID;
+
+switch (numRolled)
 {
 case 1:
-    //move one
-    //roll again
-    //move again
-    //can chain!
-    break;
-case 2:
-    //move two
-    break;
-case 3:
-    //move three
-    break;
 case 4:
-    //move four
-    //roll again
-    //move again
+    rollAgain = true;
     break;
 case 5:
     //move six (yes, six)
-    //roll again
-    //move again
+    target++;
+    rollAgain = true;
+    break;
+default:
     break;
 }
+
+switch(target)
+{
+    case LANDING:
+}
+
+//move numRolled
+if target unoccupied || (target occupied && not friendly)
+    //capture target square implied by p.movePiece()
+    result = target;
+else if target occupied && friendly
+    result = INVALID;
+
+return result;
 ```

@@ -37,10 +37,10 @@ int Player::choosePiece(Board *b, int square)
         return INVALID;
 
     char next = b->getSquare(square + 1);
-    #ifdef DEBUG
-        cout << "\tpiece: " << piece << endl;
-        cout << "\tnext: " << next << endl;
-    #endif
+    // #ifdef DEBUG
+    //     cout << "\tpiece: " << piece << endl;
+    //     cout << "\tnext: " << next << endl;
+    // #endif
     if (piece != EMPTY 
         && (b->belongsTo(piece) == this->isPlayerOne())
         && (next == EMPTY))

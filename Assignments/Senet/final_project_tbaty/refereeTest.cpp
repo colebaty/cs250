@@ -17,25 +17,6 @@ int main()
 
     Referee* r = new Referee();
 
-    cout << "checking for winner;" << endl;
-    bool done = false;
-    char winner;
-    while (!done)
-    {
-        p2->clearPiece(b, 100);//100 is dummy value; interested in decrementing numPieces
-        winner = r->checkForWinner(b, p1, p2);
-        #ifdef DEBUG
-            p2->hasPieces() ? cout << "p2 still has pieces" << endl
-                           : cout << "p2 has no pieces" << endl;
-        #endif
-
-        done = winner != EMPTY;
-        if (done)
-        {
-            r->announceWinnner(winner);
-        }
-    }
-
     cout << "testing for friendlies" << endl;
     b->display();
     assert(r->isFriendlySquare(b, p1, 1));//p1 pieces start on odd squares
@@ -49,6 +30,48 @@ int main()
     r->isFriendlySquare(b, p1, 2) ? cout << " is "
                                   : cout << " is not ";
     cout << "friendly to p1" << endl;
+
+    cout << "testing validateMove() functionality" << endl;
+    cout << "validate p1 move sq 9 [1, 5] squares forward" << endl;
+    for (int i = 1; i <= 5; i++)
+    {
+        cout << "\texpect 9 + ";
+        i == 5 ? cout << "6" : cout << i;
+        cout << ": " << r->validateMove(b, p1, 9, i) << endl;
+    }
+
+    cout << "validate moving p1sq9 to sq12; expect 12: ";
+    cout << r->validateMove(b, p1, 9, 3) << endl;
+    cout << "p1 moving sq9 to sq12" << endl;
+    p1->movePiece(b, 9, 12);
+    b->display();
+    cout << "validate moving p2sq8 to sq12; expect 12 (capture/swap): ";
+    cout << r->validateMove(b, p2, 8, 4) << endl;
+    cout << "p2 moving sq8 to sq12" << endl;
+    p2->movePiece(b, 8, 12);
+    b->display();
+    cout << "validate moving p1sq7 sq8; expect INVALID (occupied - friendly): ";
+    cout << r->validateMove(b, p1, 7, 1) << endl;
+    cout << "INVALID: " << INVALID << endl;
+
+    // cout << "checking for winner;" << endl;
+    // bool done = false;
+    // char winner;
+    // while (!done)
+    // {
+    //     p2->clearPiece(b, 100);//100 is dummy value; interested in decrementing numPieces
+    //     winner = r->checkForWinner(b, p1, p2);
+    //     #ifdef DEBUG
+    //         p2->hasPieces() ? cout << "p2 still has pieces" << endl
+    //                        : cout << "p2 has no pieces" << endl;
+    //     #endif
+
+    //     done = winner != EMPTY;
+    //     if (done)
+    //     {
+    //         r->announceWinnner(winner);
+    //     }
+    // }
 
     return 0;
 }

@@ -1,6 +1,6 @@
-#ifdef DEBUG
-    #define EMPTIES
-#endif
+// #ifdef DEBUG
+//     #define EMPTIES
+// #endif
 #include <iostream>
 #include "senet_constants.h"
 #include "board.h"
@@ -142,7 +142,7 @@ void Board::display(ostream& out)
     for (int i = 20; i < 30; i++)
     {
         #ifdef EMPTIES
-            char piece =getSquare(i);
+            char piece = getSquare(i);
             if (piece == EMPTY)
                 out << "| " <<  i;
             else if (piece == TRAP_PIECE)
