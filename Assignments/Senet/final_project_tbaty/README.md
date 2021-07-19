@@ -147,6 +147,25 @@ bool isProtected(int sqaure)
 }
 ```
 
+#### Landing Square Behavior
+
+The landing square may hold the LANDING_PIECE or one of the PLAYER pieces.
+
+When the landing square is not occupied by a player piece, it should display
+the LANDING_PIECE.
+
+Assume the landing square contains Player Two piece E, and we are attempting
+to move that piece three pieces forward:
+
+| Step | square A | piece A | square A contents | square B | piece B | square B contents|
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | LANDING | E | E | LANDING + 3 | EMPTY | EMPTY |
+| 1 | LANDING | E | LANDING_PIECE | LANDING + 3 | EMPTY | EMPTY |
+| 2 | LANDING | E | EMPTY | LANDING + 3 | EMPTY | E |
+
+
+
+
 ### Player {#PieceMovement}
 
 What does Player need?

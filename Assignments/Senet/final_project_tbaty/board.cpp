@@ -89,14 +89,20 @@ bool Board::belongsTo(char piece)
 
 void Board::swap(int a, int b)
 {
+
+    //get pieces from board
     char pieceA = getSquare(a);
     char pieceB = getSquare(b);
 
-    setSquare(a, pieceB);
-    setSquare(b, pieceA);
+    // //clear squares
+    // setSquare(a, EMPTY);
+    // setSquare(b, EMPTY);
 
-    a == LANDING ? setSquare(a, LANDING_PIECE) : setSquare(a, EMPTY);
-    b == LANDING ? setSquare(b, LANDING_PIECE) : setSquare(b, EMPTY);
+    //set pieces in destinations
+    (pieceB == EMPTY && a == LANDING) ? setSquare(a, LANDING_PIECE)
+                                      : setSquare(a, pieceB);
+    (pieceA == EMPTY && b == LANDING) ? setSquare(b, LANDING_PIECE)
+                                      : setSquare(b, pieceA);
 }
 
 void Board::display(ostream& out)

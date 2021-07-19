@@ -95,7 +95,7 @@ bool Referee::rollAgain(const int& die)
 void Referee::findLanding(Board *b, int& square)
 {
     //base case - square is unoccupied
-    if (b->getSquare(square) == EMPTY || square == LANDING)
+    if (b->getSquare(square) == EMPTY || b->getSquare(square) == LANDING_PIECE)
         return;
     else 
         findLanding(b, ++square);

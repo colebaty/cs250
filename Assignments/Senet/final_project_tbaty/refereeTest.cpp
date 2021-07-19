@@ -72,8 +72,12 @@ int main()
     p2->movePiece(b, 8, target);
     b->display();
 
+    cout << "testing moving p2 piece off LANDING; expect sq14 to display LANDING_PIECE" << endl;
+    p2->movePiece(b, LANDING, LANDING + 3);
+    b->display();
 
-    cout << "-----checking for winner;" << endl;
+
+    cout << "--- testing endgame, finding winner" << endl;
     cout << "testing moving player pieces to FINISH, clear pieces" << endl;
     //reset board
     delete b;
