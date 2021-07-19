@@ -56,8 +56,7 @@ class Referee
 
         /**
          * @brief returns INVALID if no move possible. otherwise, returns
-         * the index of the target square. governs trap square behavior, as well
-         * as dice roll values which enable the player to roll again.
+         * the index of the target square. governs trap square behavior.
          * 
          * @param b 
          * @param p 

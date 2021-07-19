@@ -2,7 +2,6 @@
 //     #define EMPTIES
 // #endif
 #include <iostream>
-#include "senet_constants.h"
 #include "board.h"
 
 using namespace std;
@@ -59,6 +58,9 @@ void Board::initialize()
         case 9:
             setSquare(i, FIVE);
             break;
+        case LANDING:
+            setSquare(i, LANDING_PIECE);
+            break;
         case TRAP:
             setSquare(i, TRAP_PIECE);
             break;
@@ -90,11 +92,11 @@ void Board::swap(int a, int b)
     char pieceA = getSquare(a);
     char pieceB = getSquare(b);
 
-    setSquare(a, EMPTY);
-    setSquare(b, EMPTY);
-
     setSquare(a, pieceB);
     setSquare(b, pieceA);
+
+    a == LANDING ? setSquare(a, LANDING_PIECE) : setSquare(a, EMPTY);
+    b == LANDING ? setSquare(b, LANDING_PIECE) : setSquare(b, EMPTY);
 }
 
 void Board::display(ostream& out)

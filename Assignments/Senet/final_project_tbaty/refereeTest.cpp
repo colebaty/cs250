@@ -51,27 +51,55 @@ int main()
     p2->movePiece(b, 8, 12);
     b->display();
     cout << "validate moving p1sq7 sq8; expect INVALID (occupied - friendly): ";
-    cout << r->validateMove(b, p1, 7, 1) << endl;
+    cout << r->validateMove(b, p1, 7, 1) - '0' << endl;//char math due to different return types
     cout << "INVALID: " << INVALID << endl;
+    b->display();
 
-    // cout << "checking for winner;" << endl;
-    // bool done = false;
-    // char winner;
-    // while (!done)
-    // {
-    //     p2->clearPiece(b, 100);//100 is dummy value; interested in decrementing numPieces
-    //     winner = r->checkForWinner(b, p1, p2);
-    //     #ifdef DEBUG
-    //         p2->hasPieces() ? cout << "p2 still has pieces" << endl
-    //                        : cout << "p2 has no pieces" << endl;
-    //     #endif
+    cout << "---- testing trap square behavior" << endl;
+    cout << "ref validates p2sq12->trap square; expecting LANDING: ";
+    int target = r->validateMove(b, p2, 12, TRAP - 12);
+    assert(target == LANDING);
+    cout << target << endl;
+    cout << "p2 moves sq12->trap" << endl;
+    p2->movePiece(b, 12, target);
+    b->display();
 
-    //     done = winner != EMPTY;
-    //     if (done)
-    //     {
-    //         r->announceWinnner(winner);
-    //     }
-    // }
+    cout << "ref validates p1sq8->trap square; expecting LANDING + 1: ";
+    target = r->validateMove(b, p1, 8, TRAP - 8);
+    // assert(target == LANDING + 1);
+    cout << target << endl;
+    cout << "p1 moves sq8->trap" << endl;
+    p2->movePiece(b, 8, target);
+    b->display();
+
+
+    cout << "-----checking for winner;" << endl;
+    cout << "testing moving player pieces to FINISH, clear pieces" << endl;
+    //reset board
+    delete b;
+    b = new Board();
+
+    bool done = false;
+    char winner;
+    int i = 9;
+    while (!done)
+    {
+        p1->movePiece(b, i, FINISH);
+        b->display();
+        winner = r->checkForWinner(b, p1, p2);
+        #ifdef DEBUG
+            p1->hasPieces() ? cout << "p1 still has pieces" << endl
+                           : cout << "p1 has no pieces" << endl;
+        #endif
+
+        done = winner != EMPTY;
+        if (done)
+        {
+            r->announceWinnner(winner);
+        }
+        
+        i -= 2;
+    }
 
     return 0;
 }
