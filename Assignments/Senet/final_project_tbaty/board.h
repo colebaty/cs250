@@ -26,7 +26,7 @@ class Board
          * @param square 
          * @return char 
          */
-        char getSquare(int square) { return _board[square]; };
+        char getSquare(int square);
 
         /**
          * @brief Places a piece at the indicated square.  If capture is possible,

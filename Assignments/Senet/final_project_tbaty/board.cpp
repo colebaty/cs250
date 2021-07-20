@@ -22,6 +22,11 @@ char Board::setSquare(const int& square, char piece, bool capture)
     return INVALID;
 }
 
+char Board::getSquare(int square)
+{ 
+    return _board[square]; 
+}
+
 void Board::initialize()
 {
     for (int i = 0; i < 30; i++)
@@ -58,9 +63,11 @@ void Board::initialize()
         case 9:
             setSquare(i, FIVE);
             break;
+        #ifdef DEBUG
         case LANDING:
             setSquare(i, LANDING_PIECE);
             break;
+        #endif
         case TRAP:
             setSquare(i, TRAP_PIECE);
             break;
