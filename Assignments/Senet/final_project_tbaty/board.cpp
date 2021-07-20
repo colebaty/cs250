@@ -105,6 +105,22 @@ void Board::swap(int a, int b)
                                       : setSquare(b, pieceA);
 }
 
+int Board::find(char piece)
+{
+    for (int i = 0; i < FINISH; i++)
+    {
+        if (_board[i] == piece)
+        {
+            cout << "key found at _board[" << i << "]" << endl;
+            return i;
+
+        }
+    }
+
+    cout << "key not found" << endl;
+    return INVALID;
+}
+
 void Board::display(ostream& out)
 {
     /*

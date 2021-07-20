@@ -15,8 +15,8 @@ int main()
     //seed srand
     srand(time(NULL));
 
-    Player *p1 = new Player();
-    Player *p2 = new Player(false);
+    Player *p1 = new Player(P1);
+    Player *p2 = new Player(P2);
 
     int die;
     cout << "p1 rolling die to initialize: ";
@@ -75,8 +75,9 @@ int main()
     assert(choice == INVALID);
     cout << "p2 unable to select square 1" << endl;
 
-    cout << "p1 choosing square 9, expecting 9" << endl;
-    choice = p1->choosePiece(b, 9);
+    cout << "p1 choosing FIVE square 9, expecting 9" << endl;
+    choice = p1->choosePiece(b, FIVE);
+    cout << "choice: " << choice << endl;
     assert(choice == 9);
     cout << "p1 successfully selected piece at square 9" << endl;
 
@@ -98,6 +99,13 @@ int main()
     cout << "p1 score (expecting 1): " << p1->getScore() << endl;
 
     b->display();
+    cout << "Player 1 pieces: ";
+    p1->displayPieces();
+    cout << endl;
+
+    cout << "Player 2 pieces: ";
+    p2->displayPieces();
+    cout << endl;
 
 
 

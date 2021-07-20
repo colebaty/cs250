@@ -50,6 +50,14 @@ class Board
 
         void swap(int a, int b);
 
+        /**
+         * @brief returns the index of the selected piece, INVALID if not found
+         * 
+         * @param piece 
+         * @return int 
+         */
+        int find(char piece);
+
         void display(std::ostream& out=std::cout);
 
 };

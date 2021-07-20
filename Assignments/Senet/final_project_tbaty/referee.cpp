@@ -80,8 +80,7 @@ bool Referee::isProtected(Board *b, Player *p, const int& target)
         rear = b->getSquare(target -1);
     }
     
-    if (b->belongsTo(forward) == p->getPlayerNumber() 
-        || b->belongsTo(rear) == p->getPlayerNumber())
+    if (b->belongsTo(forward) == p->getPlayerNumber() || b->belongsTo(rear) == p->getPlayerNumber())
          return true;
     
     return false;
