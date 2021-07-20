@@ -87,6 +87,9 @@ char Board::belongsTo(char piece)
 {
     switch (piece)
     {
+    case LANDING_PIECE:
+    case EMPTY:
+        return EMPTY;
     case ONE:
     case TWO:
     case THREE:

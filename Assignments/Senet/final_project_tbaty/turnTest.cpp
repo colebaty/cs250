@@ -1,3 +1,8 @@
+//uncomment next three lines for interactive debug
+// #ifdef DEBUG
+//   #define IDEBUG
+//#endif
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -11,6 +16,7 @@
 using namespace std;
 
 void displayInfo(Board *b, Player *p1, Player *p2, ostream& out = cout);
+void shuffleBoard(Board *b);
 
 int main()
 {
@@ -31,22 +37,7 @@ int main()
          << "players taking 5 turns each" << endl
          << "bypassing referee validation" << endl;
 
-    int origin, target;
-    for (int i = 4; i >= 0; i--)
-    {
-        p1->rollDie(die);
-        origin = 2 * i + 1;
-        target = origin + die;
-
-        p1->movePiece(b, origin, target);
-
-        p2->rollDie(die);
-        origin = 2 * i + 1;
-        target = origin + die;
-
-        p2->movePiece(b, origin, target);
-
-    }
+    shuffleBoard(b);
 
     displayInfo(b, p1, p2);
 
@@ -57,13 +48,10 @@ int main()
     cout << "p1 choose piece" << endl;
     char piece;
     cin >> piece;
-    origin = p1->choosePiece(b, piece);
-    target = r->validateMove(b, p1, origin, die);
-    assert(target == INVALID);
+    int origin = p1->choosePiece(b, piece);
+    int target = r->validateMove(b, p1, origin, die);
     while (origin == INVALID || target == INVALID)
     {
-        char move = INVALID;
-        //char move = INVALID - '0';
         cout << "invalid choice; please try again" << endl;
         cout << "p1 choose piece" << endl;
         cin >> piece;
@@ -106,4 +94,33 @@ void displayInfo(Board *b, Player *p1, Player *p2, ostream& out)
     p2->displayPieces();
     cout << endl;
 
+}
+
+//pass it a new Board instance
+void shuffleBoard(Board *b)
+{
+    Player *p1 = new Player(P1);
+    Player *p2 = new Player(P2);
+
+    int die;
+    
+    int origin, target;
+    for (int i = 4; i >= 0; i--)
+    {
+        p1->rollDie(die);
+        origin = 2 * i + 1;
+        target = origin + die;
+
+        p1->movePiece(b, origin, target);
+
+        p2->rollDie(die);
+        origin = 2 * i + 1;
+        target = origin + die;
+
+        p2->movePiece(b, origin, target);
+
+    }
+
+    delete p1;
+    delete p2;
 }
