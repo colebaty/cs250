@@ -83,12 +83,11 @@ class Referee
          * belonging to the same set of pieces.
          * 
          * @param b 
-         * @param p 
          * @param target 
          * @return true the square is protected
          * @return false 
          */
-        bool isProtected(Board *b, Player *p, const int& target);
+        bool isProtected(Board *b, const int& target);
 
 };
 

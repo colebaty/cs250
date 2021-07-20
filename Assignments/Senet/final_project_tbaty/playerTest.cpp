@@ -107,9 +107,17 @@ int main()
     p2->displayPieces();
     cout << endl;
 
+    char piece;
+    cout << "Player 1, choose piece 4: ";
+    cin >> piece;
+    cout << endl;
 
-
-
+    cout << "Player 1 attempting to access user piece \'" << piece << "\'" << endl
+         << "\texpecting 7: ";
+    choice = p1->choosePiece(b, piece);
+    assert(choice == 7);
+    cout << choice << endl;
+    
     delete b;
     delete p1;
     delete p2;

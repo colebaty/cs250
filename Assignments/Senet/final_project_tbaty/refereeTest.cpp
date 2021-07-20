@@ -12,8 +12,8 @@ int main()
 {
     cout << "---- Referee Tests -----" << endl;
     Board* b = new Board();
-    Player* p1 = new Player();
-    Player* p2 = new Player(false);
+    Player* p1 = new Player(P1);
+    Player* p2 = new Player(P2);
 
     Referee* r = new Referee();
 
@@ -96,6 +96,14 @@ int main()
                            : cout << "p1 has no pieces" << endl;
         #endif
 
+        cout << "p1 available pieces: ";
+        p1->displayPieces();
+        cout << "\t\t p1 score: " << p1->getScore() << endl;
+
+        cout << "p2 available pieces: ";
+        p2->displayPieces();
+        cout << "\t\t p2 score: " << p2->getScore() << endl;
+
         done = winner != EMPTY;
         if (done)
        {
@@ -111,7 +119,7 @@ int main()
     b = new Board();
     
     delete p1;
-    p1 = new Player();
+    p1 = new Player(P1);
 
     cout << "referee validating p1 moving exactly from origin square to FINISH" << endl
          << "\texpecting FINISH: " << r->validateMove(b, p1, 9, FINISH - 9)
@@ -122,6 +130,12 @@ int main()
     p1->movePiece(b, 9, FINISH);
     cout << "p1 score; expecting 1: " << p1->getScore() << endl;
     b->display();
+    cout << "player pieces" << endl;
+    p1->displayPieces();
+    cout << endl;
+    p2->displayPieces();
+    cout << endl;
+
 
     cout << "-------- testing capture/protection" << endl;
     cout << "new board" << endl;
@@ -132,6 +146,12 @@ int main()
     p1->movePiece(b, 9, 18);
     p1->movePiece(b, 7, 17);
     b->display();
+    cout << "player pieces" << endl;
+    p1->displayPieces();
+    cout << endl;
+    p2->displayPieces();
+    cout << endl;
+
 
     cout << "p2 attempting to capture protected squares 17 and 18 with piece E" << endl;
     cout << "referee validating move to sq 17; expecting INVALID: " 
@@ -139,9 +159,44 @@ int main()
          << "\tINVALID: " << INVALID << endl;
     cout << "referee validating move to sq 18; expecting INVALID: " 
          << r->validateMove(b, p2, 8, 10) - '0' << endl
-         << "\tINVALID: " << INVALID;
-
+         << "\tINVALID: " << INVALID << endl;
     
+    cout << "p1 moving piece '5' ahead one space" << endl;
+    p1->movePiece(b, 18, 19);
+    b->display();
+    cout << "player pieces" << endl;
+    p1->displayPieces();
+    cout << endl;
+    p2->displayPieces();
+    cout << endl;
+
+
+
+    cout << "p2 attempting to capture unprotected squares 17 and 19 with piece E" << endl;
+    cout << "referee validating p2 move piece E to sq 17; expecting 17: ";
+    assert(r->validateMove(b, p2, 8, 9) == 17);
+    cout << r->validateMove(b, p2, 8, 9) << endl;
+    cout << "p2 moving piece E to sq17" << endl;
+    p2->movePiece(b, 8, 17);
+    b->display();
+    cout << "player pieces" << endl;
+    p1->displayPieces();
+    cout << endl;
+    p2->displayPieces();
+    cout << endl;
+    cout << "p2 movinr piece E to sq19" << endl;
+    p2->movePiece(b, 17, 19);
+    b->display();
+    cout << "player pieces" << endl;
+    p1->displayPieces();
+    cout << endl;
+    p2->displayPieces();
+    cout << endl;
+    
+    
+
+
+    delete b, r, p1, p2;
 
     return 0;
 }

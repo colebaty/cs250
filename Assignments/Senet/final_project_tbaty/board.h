@@ -40,8 +40,7 @@ class Board
         char setSquare(const int& square, char piece, bool capture = false);
 
         /**
-         * @brief determines whether a piece belongs to Player 1. Assumes you're 
-         * only passing it Player piece enum types.
+         * @brief determines which player a given piece belongs to
          * 
          * @param piece 
          * @return P1 or P2

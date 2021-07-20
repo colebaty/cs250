@@ -47,8 +47,7 @@ class Player
          * @brief permits the player instance to identify itself as either
          * Player One or Player Two
          * 
-         * @return true if this instance is Player One
-         * @return false if this instsance is Player Two
+         * @return P1 or P2
          */
         char getPlayerNumber() { return _playerNumber; };
 
