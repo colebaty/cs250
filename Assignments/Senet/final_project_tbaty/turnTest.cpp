@@ -58,9 +58,12 @@ int main()
     char piece;
     cin >> piece;
     origin = p1->choosePiece(b, piece);
-    target = origin + die;
+    target = r->validateMove(b, p1, origin, die);
+    assert(target == INVALID);
     while (origin == INVALID || target == INVALID)
     {
+        char move = INVALID;
+        //char move = INVALID - '0';
         cout << "invalid choice; please try again" << endl;
         cout << "p1 choose piece" << endl;
         cin >> piece;
@@ -69,14 +72,16 @@ int main()
             continue;
 
         cout << "\treferee validating p1 move \'" << piece << "\' "
-             << "sq" << origin << " to sq" << target << endl;
+             << "sq" << origin << " to sq";
         target = r->validateMove(b, p1, origin, die);
+        target == INVALID ? cout << "INVALID" : cout << target;
+        cout << endl;
         if (target == INVALID)
         {
             continue;
         }
         else
-            return target;
+            break;
     }
 
     cout << "target: " << target << endl;
