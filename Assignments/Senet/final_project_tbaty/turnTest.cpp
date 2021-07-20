@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include <random>
+#include <cstdlib>
 #include <cassert>
 
 #include "player.h"
