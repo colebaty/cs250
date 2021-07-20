@@ -24,7 +24,11 @@ char Board::setSquare(const int& square, char piece, bool capture)
 
 char Board::getSquare(int square)
 { 
-    return _board[square]; 
+    char piece;
+    square == LANDING && _board[square] == LANDING_PIECE
+        ? piece = EMPTY
+        : piece = _board[square];
+    return piece;
 }
 
 void Board::initialize()
