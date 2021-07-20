@@ -1,3 +1,7 @@
+turnTest: referee.o turnTest.cpp board.o player.o
+	g++ -std=c++11 -g -DDEBUG -o turnTest turnTest.cpp referee.o board.o player.o
+	./turnTest
+
 refereeTest: referee.o refereeTest.cpp board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o refereeTest refereeTest.cpp referee.o board.o player.o
 	./refereeTest

@@ -77,10 +77,12 @@ bool Referee::isProtected(Board *b, const int& target)
     if (target > 0 && target < 30)
     {
         forward = b->getSquare(target + 1);
-        rear = b->getSquare(target -1);
+        rear = b->getSquare(target - 1);
     }
     
-    if (b->belongsTo(forward) == player || b->belongsTo(rear) == player)
+    char fowner = b->belongsTo(b->getSquare(forward));
+    char rowner = b->belongsTo(b->getSquare(rear));
+    if (fowner == player || rowner == player)
          return true;
     
     return false;
@@ -89,8 +91,10 @@ bool Referee::isProtected(Board *b, const int& target)
 bool Referee::isFriendlySquare(Board *b, Player *p, int square)
 {
     char piece = b->getSquare(square);
+    char powner = b->belongsTo(piece);
+    char player = p->getPlayerNumber();
 
-    if (b->belongsTo(piece) == p->getPlayerNumber())
+    if (powner == player)
         return true;
 
     return false;

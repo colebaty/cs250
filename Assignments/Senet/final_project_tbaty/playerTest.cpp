@@ -5,7 +5,6 @@
 
 #include "player.h"
 #include "board.h"
-// #include "referee.h"
 #include "senet_constants.h"
 
 using namespace std;
@@ -49,18 +48,11 @@ int main()
     
     /*
         todo: 
-            [ ] update isPlayerOne() -> getPlayerNumber()
+            [x] update isPlayerOne() -> getPlayerNumber()
     */
-    // cout << "p1 ";
-    // p1->isPlayerOne() ? cout << "is"
-    //                   : cout << "is not";
-    // cout << " Player One" << endl;
+    cout << "p1: " << p1->getPlayerNumber() + '0' << endl;
+    cout << "p2: " << p2->getPlayerNumber() + '0' << endl;
      
-    // cout << "p2 ";
-    // p2->isPlayerOne() ? cout << "is not"
-    //                   : cout << "is";
-    // cout << " Player Two" << endl;
-
     cout << "----- Player Tests with Board -----" << endl;
     Board *b = new Board();
 
