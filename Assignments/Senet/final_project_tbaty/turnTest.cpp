@@ -77,6 +77,8 @@ int main()
 
     displayInfo(b, p1, p2);
 
+    cout << "------ testing roll again behavior" << endl;
+
     delete b;
     delete r;
     delete p1;
