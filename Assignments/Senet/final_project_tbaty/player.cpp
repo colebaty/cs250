@@ -5,18 +5,18 @@ using namespace std;
 
 Player::Player()
 {
-    _playerOne = true;
+    _playerNumber = EMPTY;
     _score = 0;
 }
 
-Player::Player(bool playerOne)
+Player::Player(char playerNumber)
 {
     _score = 0;
 
-    if (!playerOne)
-        _playerOne = false;
+    if (playerNumber == P1)
+        _playerNumber = P1;
     else
-        _playerOne = true;
+        _playerNumber = P2;
 }
 
 void Player::rollDie(int& die)
@@ -33,7 +33,7 @@ int Player::choosePiece(Board *b, int square)
         return INVALID;
 
     char piece = b->getSquare(square);
-    if (b->belongsTo(piece) != this->isPlayerOne())
+    if (b->belongsTo(piece) != this->getPlayerNumber())
         return INVALID;
 
     char next = b->getSquare(square + 1);
@@ -42,9 +42,12 @@ int Player::choosePiece(Board *b, int square)
     //     cout << "\tnext: " << next << endl;
     // #endif
     if (piece != EMPTY 
-        && (b->belongsTo(piece) == this->isPlayerOne())
+        && (b->belongsTo(piece) == this->getPlayerNumber())
         && (next == EMPTY))
+    {
+        cout << "here!" << endl;
         return square;
+    }
     
     return INVALID;
     
@@ -80,22 +83,22 @@ void Player::clearPiece(Board *b, int square)
     _score++;
 }
 
-bool Player::isProtected(Board *b, int square)
-{
-    char forward = EMPTY;
-    char rear = EMPTY;
-    //forward neighbor
-    if (square > 0 && square < 30)
-    {
-        forward = b->getSquare(square + 1);
-        rear = b->getSquare(square -1);
-    }
+// bool Player::isProtected(Board *b, int square)
+// {
+//     char forward = EMPTY;
+//     char rear = EMPTY;
+//     //forward neighbor
+//     if (square > 0 && square < 30)
+//     {
+//         forward = b->getSquare(square + 1);
+//         rear = b->getSquare(square -1);
+//     }
     
-     if ((b->belongsTo(forward) || b->belongsTo(rear))
-         && this->isPlayerOne() == _playerOne)
-         return true;
+//      if ((b->belongsTo(forward) || b->belongsTo(rear))
+//          && this->isPlayerOne() == _playerOne)
+//          return true;
     
-    return false;
+//     return false;
 
-    //rear neighbor
-}
+//     //rear neighbor
+// }

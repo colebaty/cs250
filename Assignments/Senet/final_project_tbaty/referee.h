@@ -26,6 +26,7 @@ class Referee
          */
         void findLanding(Board *b, int& square);
 
+
     public:
         Referee();
     
@@ -76,6 +77,18 @@ class Referee
          */
         bool rollAgain(const int& die);
 
+        /**
+         * @brief determines whether the given square is protected. returns true
+         * when the square's forward or rear neighbor is occupied by a piece 
+         * belonging to the same set of pieces.
+         * 
+         * @param b 
+         * @param p 
+         * @param target 
+         * @return true the square is protected
+         * @return false 
+         */
+        bool isProtected(Board *b, Player *p, const int& target);
 
 };
 

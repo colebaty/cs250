@@ -98,12 +98,50 @@ int main()
 
         done = winner != EMPTY;
         if (done)
-        {
+       {
             r->announceWinnner(winner);
         }
         
         i -= 2;
     }
+
+    cout << "-------- testing land exactly on FINISH to clear piece" << endl;
+    //reset board, p1
+    delete b;
+    b = new Board();
+    
+    delete p1;
+    p1 = new Player();
+
+    cout << "referee validating p1 moving exactly from origin square to FINISH" << endl
+         << "\texpecting FINISH: " << r->validateMove(b, p1, 9, FINISH - 9)
+         << "\tFINISH: " << FINISH << endl;
+    
+    cout << "p1 score; expecting 0: " << p1->getScore() << endl;
+    cout << "p1 moving sq9->FINISH" << endl;
+    p1->movePiece(b, 9, FINISH);
+    cout << "p1 score; expecting 1: " << p1->getScore() << endl;
+    b->display();
+
+    cout << "-------- testing capture/protection" << endl;
+    cout << "new board" << endl;
+    delete b;
+    b = new Board();
+    b->display();
+    cout << "arranging pieces" << endl;
+    p1->movePiece(b, 9, 18);
+    p1->movePiece(b, 7, 17);
+    b->display();
+
+    cout << "p2 attempting to capture protected squares 17 and 18 with piece E" << endl;
+    cout << "referee validating move to sq 17; expecting INVALID: " 
+         << r->validateMove(b, p2, 8, 9) - '0' << endl
+         << "\tINVALID: " << INVALID << endl;
+    cout << "referee validating move to sq 18; expecting INVALID: " 
+         << r->validateMove(b, p2, 8, 10) - '0' << endl
+         << "\tINVALID: " << INVALID;
+
+    
 
     return 0;
 }

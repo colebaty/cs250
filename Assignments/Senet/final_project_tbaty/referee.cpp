@@ -49,7 +49,7 @@ int Referee::validateMove(Board *b, Player *p, int origin, int numRolled)
 
     if (numRolled == 5) ++target;//a roll of 5 means move 6 squares
 
-    if (target > FINISH) return FINISH;
+    if (target > FINISH) return INVALID;//must land exactly on FINISH to clear
     if (target == TRAP) 
     {
         target = LANDING;
@@ -60,17 +60,40 @@ int Referee::validateMove(Board *b, Player *p, int origin, int numRolled)
     //if target is friendly, then it's not empty and we can't land there
     if (isFriendlySquare(b, p, target))
         return INVALID;
+    else if (!isProtected(b, p, target))
+        return target;
 
     return target;
 }
 
+bool Referee::isProtected(Board *b, Player *p, const int& target)
+{
+    //get which player
+    char player = p->getPlayerNumber();
+
+    //get neighboring squares
+    char forward = EMPTY;
+    char rear = EMPTY;
+    if (target > 0 && target < 30)
+    {
+        forward = b->getSquare(target + 1);
+        rear = b->getSquare(target -1);
+    }
+    
+    if (b->belongsTo(forward) == p->getPlayerNumber() 
+        || b->belongsTo(rear) == p->getPlayerNumber())
+         return true;
+    
+    return false;
+}
+
 bool Referee::isFriendlySquare(Board *b, Player *p, int square)
 {
-    bool playerOne = p->isPlayerOne();
+    char playerOne = p->getPlayerNumber();
     char piece = b->getSquare(square);
 
-    if (b->belongsTo(piece) == playerOne)
-    return true;
+    if (b->belongsTo(piece) == p->getPlayerNumber())
+        return true;
 
     return false;
 }

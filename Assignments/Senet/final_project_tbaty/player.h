@@ -7,18 +7,13 @@
 class Player
 {
     private:
-        /**
-         * @brief if true, this is Player One, and their pieces are PlayerOne 
-         * enum types; Player Two applies otherwise.
-         * 
-         */
-        bool _playerOne;
+        char _playerNumber;
         int _score;
 
-        bool isProtected(Board *b, int square);
+        // bool isProtected(Board *b, int square);
 
         /**
-         * @brief called after a piece reaches TARGET. 
+         * @brief called after a piece reaches FINISH. 
          * clears piece from board. decrements score.
          * 
          * @param b 
@@ -28,13 +23,13 @@ class Player
 
     public:
         Player();
+
         /**
-         * @brief Construct a new Player object.  The only way to set a Player
-         * Two object is to explicitly call this constructor with 'false'
+         * @brief Construct a new Player object
          * 
-         * @param playerOne 
+         * @param playerNumber 
          */
-        Player(bool playerOne);
+        Player(char playerNumber);
 
         /**
          * @brief permits the player instance to identify itself as either
@@ -43,7 +38,7 @@ class Player
          * @return true if this instance is Player One
          * @return false if this instsance is Player Two
          */
-        bool isPlayerOne() { return _playerOne == true; };
+        char getPlayerNumber() { return _playerNumber == true; };
 
         /**
          * @brief sets the value of die to an integer on [1, 5]. die must be 

@@ -72,7 +72,7 @@ void Board::initialize()
     }
 }
 
-bool Board::belongsTo(char piece)
+char Board::belongsTo(char piece)
 {
     switch (piece)
     {
@@ -81,9 +81,9 @@ bool Board::belongsTo(char piece)
     case THREE:
     case FOUR:
     case FIVE:
-        return true;
+        return P1;
     default:
-        return false;
+        return P2;
     }
 }
 
@@ -91,12 +91,12 @@ void Board::swap(int a, int b)
 {
 
     //get pieces from board
-    char pieceA = getSquare(a);
-    char pieceB = getSquare(b);
-
-    // //clear squares
-    // setSquare(a, EMPTY);
-    // setSquare(b, EMPTY);
+    char pieceA;
+    getSquare(a) == LANDING_PIECE ? pieceA = EMPTY
+                                  : pieceA = getSquare(a);
+    char pieceB;
+    getSquare(b) == LANDING_PIECE ? pieceB = EMPTY
+                                  : pieceB = getSquare(b);
 
     //set pieces in destinations
     (pieceB == EMPTY && a == LANDING) ? setSquare(a, LANDING_PIECE)

@@ -44,10 +44,9 @@ class Board
          * only passing it Player piece enum types.
          * 
          * @param piece 
-         * @return true piece belongs to Player 1
-         * @return false pice belongs to Player 2
+         * @return P1 or P2
          */
-        bool belongsTo(char piece);
+        char belongsTo(char piece);
 
         void swap(int a, int b);
 

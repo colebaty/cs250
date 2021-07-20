@@ -47,15 +47,19 @@ int main()
     
     assert(sum == 100);
     
-    cout << "p1 ";
-    p1->isPlayerOne() ? cout << "is"
-                      : cout << "is not";
-    cout << " Player One" << endl;
+    /*
+        todo: 
+            [ ] update isPlayerOne() -> getPlayerNumber()
+    */
+    // cout << "p1 ";
+    // p1->isPlayerOne() ? cout << "is"
+    //                   : cout << "is not";
+    // cout << " Player One" << endl;
      
-    cout << "p2 ";
-    p2->isPlayerOne() ? cout << "is not"
-                      : cout << "is";
-    cout << " Player Two" << endl;
+    // cout << "p2 ";
+    // p2->isPlayerOne() ? cout << "is not"
+    //                   : cout << "is";
+    // cout << " Player Two" << endl;
 
     cout << "----- Player Tests with Board -----" << endl;
     Board *b = new Board();

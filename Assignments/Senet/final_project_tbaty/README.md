@@ -192,9 +192,6 @@ void Player::rollDie(int& die)
 Referee receives (board), player, player origin square, num rolled on die. Player
 origin square has been validated by `choosePiece()` method in Player ADT.
 
-```cpp
-//referee receives (board), player, player origin square, num rolled on die
-```
 
 ## Piece Movement {#pieceMovement}
 
