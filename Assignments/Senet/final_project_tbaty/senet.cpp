@@ -57,7 +57,7 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
     playFirstTurn(b, r, p1);
 
     bool done = false;
-    bool playerOneTurn = true;
+    bool playerOneTurn = false;//P1 has already played
     char winner = EMPTY;
     while (!done)
     {
@@ -108,7 +108,10 @@ void playFirstTurn(Board *b, Referee *r, Player *p1)//p1 starts game and must pl
                 cout << "Invalid selection; please try again" << endl;
             
             b->display();
-            cout << "die: " << die << endl;
+            cout << "Die: " << die;
+            if (rollAgain)
+                cout << " - roll again!";
+            cout << endl;
             p1->displayPieces();
             cout << endl;
 
@@ -128,7 +131,7 @@ void playFirstTurn(Board *b, Referee *r, Player *p1)//p1 starts game and must pl
 
         p1->movePiece(b, origin, target);
         isFirstRoll = false;
-        b->display();
+        // b->display();
     }
         
 }
@@ -142,7 +145,6 @@ void playTurn(Board *b, Referee *r, Player *p)
     {
         //player rolls die
         p->rollDie(die);
-        cout << "die: " << die << endl;
 
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
@@ -155,15 +157,21 @@ void playTurn(Board *b, Referee *r, Player *p)
         do
         {
             //player selects piece
-            if (origin == INVALID || target == INVALID) cout << "invalid selection" << endl;
+            if (origin == INVALID || target == INVALID) 
+                cout << "Invalid selection; please try again." << endl;
             
             b->display();
+            cout << "Die: " << die;
+            if (rollAgain)
+                cout << " - roll again!";
+            cout << endl;
             p->displayPieces();
             cout << endl;
 
             p->getPlayerNumber() == P1
-                ? cout << "p1 choose piece: "
-                : cout << "p2 choose piece: ";
+                ? cout << "Player 1"
+                : cout << "Player 2";
+            cout <<  ", please choose a piece: ";
             cin >> piece;
             //account for lowercase piece entry for P2
             if (p->getPlayerNumber() == P2)
@@ -181,7 +189,7 @@ void playTurn(Board *b, Referee *r, Player *p)
         while (origin == INVALID || target == INVALID);
 
         p->movePiece(b, origin, target);
-        b->display();
+        // b->display();
         if (r->isWinner())
             break;
         

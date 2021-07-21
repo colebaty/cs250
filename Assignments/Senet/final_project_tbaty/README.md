@@ -265,3 +265,8 @@ bool playTurn(Board *b, Referee *r, Player *p)
 
 }
 ```
+## Display Sequence
+
+```cpp
+//display info
+```
