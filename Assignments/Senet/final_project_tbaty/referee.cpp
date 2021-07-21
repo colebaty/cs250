@@ -68,8 +68,13 @@ int Referee::validateMove(Board *b, Player *p, int origin, int numRolled)
 
 bool Referee::isProtected(Board *b, const int& target)
 {
+    //get piece
+    char piece = b->getSquare(target);
+    if (piece == EMPTY)
+        return false;
+
     //get which player
-    char player = b->belongsTo(b->getSquare(target));
+    char player = b->belongsTo(piece);
 
     //get neighboring squares
     char forward = EMPTY;
@@ -80,8 +85,8 @@ bool Referee::isProtected(Board *b, const int& target)
         rear = b->getSquare(target - 1);
     }
     
-    char fowner = b->belongsTo(b->getSquare(forward));
-    char rowner = b->belongsTo(b->getSquare(rear));
+    char fowner = b->belongsTo(forward);
+    char rowner = b->belongsTo(rear);
     if (fowner == player || rowner == player)
          return true;
     
@@ -91,6 +96,8 @@ bool Referee::isProtected(Board *b, const int& target)
 bool Referee::isFriendlySquare(Board *b, Player *p, int square)
 {
     char piece = b->getSquare(square);
+    if (piece == EMPTY) return false;
+
     char powner = b->belongsTo(piece);
     char player = p->getPlayerNumber();
 

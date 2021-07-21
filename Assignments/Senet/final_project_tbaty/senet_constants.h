@@ -8,6 +8,6 @@ enum SpecialPieces : char {TRAP_PIECE = 'X', LANDING_PIECE = 'O',
                            EMPTY = ' ', INVALID = 0};
 enum Move : char {ADVANCE, CAPTURE, NO_MOVE};
 
-enum Players: char {P1, P2};
+enum Players: char {P1, P2, NONE};
 
 #endif //__SENET_CONSTANTS_H__

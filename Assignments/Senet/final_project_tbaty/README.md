@@ -237,3 +237,31 @@ else if target occupied && friendly
 
 return result;
 ```
+## Turns
+
+```cpp
+bool playTurn(Board *b, Referee *r, Player *p)
+{
+    int die;
+    bool rollAgain = true;
+    while (rollAgain)
+    {
+        //player rolls die
+
+        //ref checks whether to roll again
+        rollAgain = r->rollAgain(die);
+
+        //player selects piece
+        
+        //ref validates move
+        while (move not valid)
+        {
+            //player selects different piece
+        }
+        
+    }
+
+    return true;
+
+}
+```
