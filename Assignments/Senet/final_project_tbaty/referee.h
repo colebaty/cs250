@@ -12,7 +12,7 @@ class Referee
     private:
         char _winner;
 
-        void setWinner(char& winner);
+        void setWinner(char winner);
 
         /**
          * @brief called only in the special case that a player's piece lands
@@ -53,7 +53,7 @@ class Referee
          */
         char checkForWinner(Board* b, Player* p1, Player* p2);
 
-        void announceWinnner(char winner, std::ostream& out = std::cout);
+        void announceWinnner(std::ostream& out = std::cout);
 
         /**
          * @brief returns INVALID if no move possible. otherwise, returns

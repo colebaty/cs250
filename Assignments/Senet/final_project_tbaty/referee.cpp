@@ -7,10 +7,10 @@ Referee::Referee()
     _winner = EMPTY;
 }
 
-void Referee::announceWinnner(char winner, ostream& out)
+void Referee::announceWinnner(ostream& out)
 {
     out << "Player ";
-    switch (winner)
+    switch (_winner)
     {
     case P1:
         out << "One";
@@ -23,9 +23,9 @@ void Referee::announceWinnner(char winner, ostream& out)
     out << " wins!" << endl;
 }
 
-void Referee::setWinner(char& winner)
+void Referee::setWinner(char winner)
 {
-_winner = winner;
+    _winner = winner;
 }
 
 bool Referee::isWinner()
@@ -35,12 +35,12 @@ bool Referee::isWinner()
 
 char Referee::checkForWinner(Board* b, Player* p1, Player* p2)
 {
-if (!p1->hasPieces())
-    _winner = P1;
-else if (!p2->hasPieces())
-    _winner = P2;
+    if (!p1->hasPieces())
+        _winner = P1;
+    else if (!p2->hasPieces())
+        _winner = P2;
 
-return _winner;
+    return _winner;
 }
 
 int Referee::validateMove(Board *b, Player *p, int origin, int numRolled)

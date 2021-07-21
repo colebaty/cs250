@@ -192,6 +192,10 @@ void Player::movePiece(Board *b, int origin, int target, char mode)
 
 void Player::displayPieces(ostream& out)
 {
+    out << "Player ";
+    getPlayerNumber() == P1 ? out << "One"
+                            : out << "Two";
+    out << " availale pieces: ";
     for (int i = 0; i < 5; i++)
         out << "|" << _playerPieces[i];
     
@@ -213,23 +217,3 @@ void Player::clearPiece(Board *b, int square)
     b->setSquare(square, EMPTY);
     _score++;
 }
-
-// bool Player::isProtected(Board *b, int square)
-// {
-//     char forward = EMPTY;
-//     char rear = EMPTY;
-//     //forward neighbor
-//     if (square > 0 && square < 30)
-//     {
-//         forward = b->getSquare(square + 1);
-//         rear = b->getSquare(square -1);
-//     }
-    
-//      if ((b->belongsTo(forward) || b->belongsTo(rear))
-//          && this->isPlayerOne() == _playerOne)
-//          return true;
-    
-//     return false;
-
-//     //rear neighbor
-// }

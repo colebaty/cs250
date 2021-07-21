@@ -8,7 +8,14 @@ using namespace std;
 
 Board::Board()
 {
-    initialize();
+    #ifdef EMPTIES
+        for (int i = 0; i <= FINISH; i++)
+        {
+            setSquare(i, EMPTY);
+        }
+    #else
+        initialize();
+    #endif
 }
 
 char Board::setSquare(const int& square, char piece, bool capture)

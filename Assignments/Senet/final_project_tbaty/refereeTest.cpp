@@ -107,7 +107,7 @@ int main()
         done = winner != EMPTY;
         if (done)
        {
-            r->announceWinnner(winner);
+            r->announceWinnner();
         }
         
         i -= 2;
