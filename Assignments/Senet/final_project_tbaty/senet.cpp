@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <cassert>
+#include <fstream>
 
 #include "player.h"
 #include "board.h"
@@ -10,7 +11,6 @@
 
 using namespace std;
 
-void displayRules(ostream& out = cout);
 void printLine(ostream& out = cout);
 void displayInfo(Board *b, Player *p1, Player *p2, ostream& out = cout);
 void playGame(Board *b, Referee *r, Player *p1, Player *p2);
@@ -30,8 +30,6 @@ int main()
     Player *p1 = new Player(P1);//P1 referenced in 'senet_constants.h'
     Player *p2 = new Player(P2);//P2 referenced in 'senet_constants.h'
 
-    displayRules();
-
     while (!r->isWinner())
     {
         playGame(b, r, p1, p2);
@@ -40,8 +38,6 @@ int main()
     assert(r->isWinner());
 
     r->announceWinnner(cout);
-
-
 
     delete b;
     delete r;
@@ -131,7 +127,6 @@ void playFirstTurn(Board *b, Referee *r, Player *p1)//p1 starts game and must pl
 
         p1->movePiece(b, origin, target);
         isFirstRoll = false;
-        // b->display();
     }
         
 }
@@ -148,7 +143,10 @@ void playTurn(Board *b, Referee *r, Player *p)
 
         //check for available moves
         if (!r->movesAvailable(b, p, die))
+        {
+            cout << "No moves available - rolling again" << endl;
             continue;
+        }
 
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
@@ -186,7 +184,6 @@ void playTurn(Board *b, Referee *r, Player *p)
         while (origin == INVALID || target == INVALID);
 
         p->movePiece(b, origin, target);
-        // b->display();
         if (r->isWinner())
             break;
         
@@ -204,32 +201,3 @@ void displayInfo(Board *b, Player *p1, Player *p2, ostream& out)
 
 }
 
-void displayRules(ostream& out)
-{
-    Board *b;
-    #ifndef EMPTIES
-        #define EMPTIES
-        b = new Board();
-        #undef EMPTIES
-    #else
-        b = new Board();
-    #endif
-
-    out << "***********************************************" << endl;
-    out << "*                    Senet                    *" << endl;
-    out << "*            ODU CS250 Summer '21             *" << endl;
-    out << "*                Final project                *" << endl;
-    out << "***********************************************" << endl;
-
-    printLine(out);
-
-    b->display();
-
-    out << "Press any key to continue..." << endl;
-    cin.get();
-}
-
-void printLine(ostream& out)
-{
-    out << "================================================" << endl;
-}
