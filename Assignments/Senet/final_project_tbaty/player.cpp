@@ -195,7 +195,7 @@ void Player::displayPieces(ostream& out)
     out << "Player ";
     getPlayerNumber() == P1 ? out << "One"
                             : out << "Two";
-    out << " availale pieces: ";
+    out << " available pieces: ";
     for (int i = 0; i < 5; i++)
         out << "|" << _playerPieces[i];
     
