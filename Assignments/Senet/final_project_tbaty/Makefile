@@ -1,6 +1,9 @@
 senet: senet.cpp referee.o board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o senet senet.cpp referee.o board.o player.o
 
+noMoveTest: referee.o noMoveTest.cpp board.o player.o
+	g++ -std=c++11 -g -DDEBUG -o noMoveTest noMoveTest.cpp referee.o board.o player.o
+	
 turnTest: referee.o turnTest.cpp board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o turnTest turnTest.cpp referee.o board.o player.o
 

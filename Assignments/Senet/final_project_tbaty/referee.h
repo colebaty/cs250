@@ -89,6 +89,19 @@ class Referee
          */
         bool isProtected(Board *b, const int& target);
 
+        /**
+         * @brief determines whether the given player has any legal moves
+         * to play on the board - board may reach a state where all possible
+         * target squares are unavailable. if no moves, player should roll again
+         * 
+         * @param b 
+         * @param p 
+         * @param numRolled 
+         * @return true any player piece has a legal move
+         * @return false no player piece has a legal move
+         */
+        bool movesAvailable(Board *b, Player *p, int numRolled);
+
 };
 
 

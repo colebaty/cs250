@@ -1,4 +1,6 @@
 #include <random>
+#include <vector>
+
 #include "player.h"
 
 using namespace std;
@@ -216,4 +218,20 @@ void Player::clearPiece(Board *b, int square)
     //remove piece from board
     b->setSquare(square, EMPTY);
     _score++;
+}
+
+vector<char> Player::getPlayerPieces()
+{
+    vector<char> result; 
+
+    //count pieces in play
+    for (int i = 0; i < 5; i++)
+    {   
+        if (_playerPieces[i] != EMPTY)
+        {
+            result.push_back(_playerPieces[i]);
+        }
+    }
+
+    return result;
 }

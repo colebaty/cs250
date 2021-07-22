@@ -1,6 +1,8 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
+#include <vector>
+
 #include "board.h"
 #include "senet_constants.h"
 
@@ -102,6 +104,15 @@ class Player
          * @return int 
          */
         int getScore() { return _score; };
+
+        /**
+         * @brief returns a dynamically allocated array of the player's available
+         * pieces at the moment the function is called. primarily for use within 
+         * Referee::movesAvailable()
+         * 
+         * @return char* 
+         */
+        std::vector<char> getPlayerPieces();
 
 };
 

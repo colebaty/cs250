@@ -1,3 +1,5 @@
+#include <vector>
+
 #include "referee.h"
 
 using namespace std;
@@ -131,4 +133,22 @@ void Referee::findLanding(Board *b, int& square)
         return;
     else 
         findLanding(b, ++square);
+}
+
+bool Referee::movesAvailable(Board *b, Player *p, int numRolled)
+{
+    vector<char> playerPieces = p->getPlayerPieces();
+    if (playerPieces.size() == 0) return false;
+
+    int origin = 0;
+    //for all player pieces in play currently
+    for (char c : playerPieces)
+    {
+        origin = p->choosePiece(b, c);
+        //if any move is legal
+        if (validateMove(b, p, origin, numRolled) == INVALID)
+            return true;
+    }
+
+    return false;
 }
