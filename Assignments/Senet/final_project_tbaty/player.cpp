@@ -143,6 +143,14 @@ void Player::rollDie(int& die)
 
 int Player::choosePiece(Board *b, char piece)
 {
+    if (getPlayerNumber() == P2)
+    {
+        //ascii/char math - if piece is lowercase, convert to uppercase
+        //so it matches P2 pieces in senet_constants.h
+        if (piece > 96 && piece < 102)
+            piece -= ' ';
+    }
+
     //if piece doesn't belong to player, invalid selection
     if(b->belongsTo(piece) != this->getPlayerNumber())
         return INVALID;

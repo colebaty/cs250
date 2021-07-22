@@ -81,10 +81,7 @@ void playTurn(Board *b, Referee *r, Player *p)
 
         //check for available moves
         if (!r->movesAvailable(b, p, die))
-        {
-            cout << "no moves available; rolling again" << endl;
             continue;
-        }
 
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
@@ -114,13 +111,6 @@ void playTurn(Board *b, Referee *r, Player *p)
             cout <<  ", please choose a piece: ";
             cin >> piece;
             //account for lowercase piece entry for P2
-            if (p->getPlayerNumber() == P2)
-            {
-                //ascii/char math - if piece is lowercase, convert to uppercase
-                //so it matches P2 pieces in senet_constants.h
-                if (piece > 96 && piece < 102)
-                    piece -= ' ';
-            }
             origin = p->choosePiece(b, piece);
             cout << endl;
 
