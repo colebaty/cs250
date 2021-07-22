@@ -142,7 +142,7 @@ void playTurn(Board *b, Referee *r, Player *p)
         p->rollDie(die);
 
         //check for available moves
-        if (!r->movesAvailable(b, p, die) && !r->isWinner())
+        if (!r->movesAvailable(b, p, die))
         {
             cout << "No moves available - rolling again" << endl;
             continue;
