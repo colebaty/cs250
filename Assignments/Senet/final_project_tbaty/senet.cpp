@@ -146,6 +146,10 @@ void playTurn(Board *b, Referee *r, Player *p)
         //player rolls die
         p->rollDie(die);
 
+        //check for available moves
+        if (!r->movesAvailable(b, p, die))
+            continue;
+
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
 
