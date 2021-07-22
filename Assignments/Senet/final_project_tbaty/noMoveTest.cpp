@@ -42,9 +42,18 @@ int main()
     b->display();
     cout << "die: " << die << endl;
 
-    cout << "p2: any moves possible? ";
+    cout << "p2: any moves possible? (expect N): ";
     r->movesAvailable(b, p2, die) ? cout << "Y" << endl
                                   : cout << "N" << endl;
+
+    cout << "p1 moves FOUR to sq12" << endl;
+    p1->movePiece(b, 11, 12);
+    b->display();
+
+    cout << "p2: any moves possible? (expect Y): ";
+    r->movesAvailable(b, p2, die) ? cout << "Y" << endl
+                                  : cout << "N" << endl;
+    
 
     delete b;
     delete r;

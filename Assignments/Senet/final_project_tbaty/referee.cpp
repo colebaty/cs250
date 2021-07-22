@@ -146,7 +146,7 @@ bool Referee::movesAvailable(Board *b, Player *p, int numRolled)
     {
         origin = p->choosePiece(b, c);
         //if any move is legal
-        if (validateMove(b, p, origin, numRolled) == INVALID)
+        if (validateMove(b, p, origin, numRolled) != INVALID)
             return true;
     }
 
