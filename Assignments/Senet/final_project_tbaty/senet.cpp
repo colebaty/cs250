@@ -30,7 +30,7 @@ int main()
     Player *p1 = new Player(P1);//P1 referenced in 'senet_constants.h'
     Player *p2 = new Player(P2);//P2 referenced in 'senet_constants.h'
 
-    // displayRules();
+    displayRules();
 
     while (!r->isWinner())
     {
@@ -227,6 +227,9 @@ void displayRules(ostream& out)
     printLine(out);
 
     b->display();
+
+    out << "Press any key to continue..." << endl;
+    cin.get();
 }
 
 void printLine(ostream& out)
