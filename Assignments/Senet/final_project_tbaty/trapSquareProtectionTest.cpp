@@ -42,7 +42,7 @@ int main()
     cout << "N" << endl;
 
     cout << "test whether p2 piece E can caputure p1 piece FIVE @ sqaure TRAP - 1: ";
-    assert(r->validateMove(b, p1, 8, TRAP - 1) == TRAP - 1);
+    int target = r->validateMove(b, p2, 8, (TRAP - 1) - 8);
     cout << "Y" << endl;
 
     delete b;
