@@ -1,6 +1,9 @@
 senet: senet.cpp referee.o board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o senet senet.cpp referee.o board.o player.o
 
+trapSquareProtectionTest: referee.o trapSquareProtectionTest.cpp board.o player.o
+	g++ -std=c++11 -g -DDEBUG -o trapSquareProtectionTest trapSquareProtectionTest.cpp referee.o board.o player.o
+	
 endgameTest: referee.o endgameTest.cpp board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o endgameTest endgameTest.cpp referee.o board.o player.o
 	
