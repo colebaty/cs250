@@ -106,11 +106,12 @@ class Player
         int getScore() { return _score; };
 
         /**
-         * @brief returns a dynamically allocated array of the player's available
-         * pieces at the moment the function is called. primarily for use within 
-         * Referee::movesAvailable()
+         * @brief returns a vector containing the  player's available
+         * pieces at the moment the function is called. if the player has no
+         * pieces in play, returns a vector containing a single EMPTY piece
+         * primarily for use within Referee::movesAvailable()
          * 
-         * @return char* 
+         * @return 
          */
         std::vector<char> getPlayerPieces();
 

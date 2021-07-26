@@ -66,6 +66,9 @@ void playTurn(Board *b, Referee *r, Player *p)
 
     while (rollAgain)
     {
+        if (r->isWinner())
+            break;
+        
         //player rolls die
         p->rollDie(die);
 
@@ -109,9 +112,6 @@ void playTurn(Board *b, Referee *r, Player *p)
         while (origin == INVALID || target == INVALID);
 
         p->movePiece(b, origin, target);
-        // b->display();
-        if (r->isWinner())
-            break;
         
     }
 
