@@ -11,6 +11,7 @@
 
 using namespace std;
 
+void printHeader(ostream& out = cout);
 void printLine(ostream& out = cout);
 void displayInfo(Board *b, Player *p1, Player *p2, ostream& out = cout);
 void playGame(Board *b, Referee *r, Player *p1, Player *p2);
@@ -21,6 +22,9 @@ int main()
 {
     //seed srand
     srand(time(NULL));
+
+    //print header
+    printHeader();
 
     //game setup
     Board *b = new Board();
@@ -170,7 +174,7 @@ void playTurn(Board *b, Referee *r, Player *p)
             cout << endl;
 
             p->getPlayerNumber() == P1
-                ? cout << "Player 1"
+                ? cout << "Player One"
                 : cout << "Player 2";
             cout <<  ", please choose a piece: ";
             cin >> piece;
@@ -200,3 +204,18 @@ void displayInfo(Board *b, Player *p1, Player *p2, ostream& out)
 
 }
 
+void printHeader(ostream& out)
+{
+    out << "***********************************************" << endl;
+    out << "*                    Senet                    *" << endl;
+    out << "*            ODU CS250 Summer '21             *" << endl;
+    out << "*                Final project                *" << endl;
+    out << "***********************************************" << endl;
+
+    printLine(out);
+}
+
+void printLine(ostream& out)
+{
+    out << "================================================" << endl;
+}

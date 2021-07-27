@@ -1,3 +1,6 @@
+main: main.cpp referee.o board.o player.o
+	g++ -std=c++11 -g main.cpp referee.o board.o player.o
+
 senet: senet.cpp referee.o board.o player.o
 	g++ -std=c++11 -g -DDEBUG -o senet senet.cpp referee.o board.o player.o
 
@@ -35,4 +38,7 @@ player.o: player.h player.cpp
 	g++ -std=c++11 -g -DDEBUG -c player.cpp senet_constants.h
 
 clean:
-	rm -rf *.o *.gch *Test *.dSYM
+	rm -rf *.zip *.o *.gch *Test *.dSYM
+
+zip:
+	zip -r final_project_tbaty.zip . -i *.cpp *.h *.cbp Makefile -x *Test* Makefile
