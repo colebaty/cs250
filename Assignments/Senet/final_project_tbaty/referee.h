@@ -51,7 +51,7 @@ class Referee
          * @return char EMPTY if no winner found; otherwise P1 or P2, whichever is 
          * to clear all pieces from board
          */
-        char checkForWinner(Board* b, Player* p1, Player* p2);
+        char checkForWinner(Board* b, Player* p);
 
         void announceWinnner(std::ostream& out = std::cout);
 

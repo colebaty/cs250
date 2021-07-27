@@ -64,17 +64,17 @@ void playTurn(Board *b, Referee *r, Player *p)
     int die;
     bool rollAgain = true;
 
-    while (rollAgain)
+    while (rollAgain && !r->isWinner())
     {
-        if (r->isWinner())
-            break;
-        
         //player rolls die
         p->rollDie(die);
 
         //check for available moves
         if (!r->movesAvailable(b, p, die))
+		{
+			r->checkForWinner(b, p);
             continue;
+		}
 
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
