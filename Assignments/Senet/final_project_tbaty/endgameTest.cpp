@@ -145,7 +145,8 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
         displayInfo(b, p1, p2);
         
         //check for winner
-        winner = r->checkForWinner(b, p1, p2);
+        winner = r->checkForWinner(b, p1);
+        winner = r->checkForWinner(b, p2);
 
         if (winner != EMPTY)
             done = true;

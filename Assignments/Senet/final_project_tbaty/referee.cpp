@@ -38,7 +38,7 @@ bool Referee::isWinner()
 char Referee::checkForWinner(Board* b, Player* p)
 {
     if (!p->hasPieces())
-        _winner = p.getPlayerNumber();
+        _winner = p->getPlayerNumber();
 
     return _winner;
 }
