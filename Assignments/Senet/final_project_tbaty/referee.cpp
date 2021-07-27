@@ -138,8 +138,6 @@ bool Referee::movesAvailable(Board *b, Player *p, int numRolled)
     vector<char> playerPieces = p->getPlayerPieces();
     if (playerPieces.empty()) 
         return false;
-    //if (playerPieces.size() == 0) return false;
-    //if (playerPieces.size() == 0) return true;
 
     int origin = 0;
     //for all player pieces in play currently

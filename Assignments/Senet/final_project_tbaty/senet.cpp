@@ -52,10 +52,10 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
     //play first turn - P1 must play FIVE
     playFirstTurn(b, r, p1);
 
-    bool done = false;
+    displayInfo(b, p1, p2);
+
     bool playerOneTurn = false;//P1 has already played
-    char winner = EMPTY;
-    while (!done)
+    while (!r->isWinner())
     {
         //alternating turns
         playerOneTurn ? playTurn(b, r, p1)
@@ -67,10 +67,8 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
         displayInfo(b, p1, p2);
         
         //check for winner
-        winner = r->checkForWinner(b, p1, p2);
-
-        if (winner != EMPTY)
-            done = true;
+        r->checkForWinner(b, p1);
+        r->checkForWinner(b, p2);
     }
 
 }
@@ -136,7 +134,7 @@ void playTurn(Board *b, Referee *r, Player *p)
     int die;
     bool rollAgain = true;
 
-    while (rollAgain)
+    while (rollAgain && !r->isWinner())
     {
         //player rolls die
         p->rollDie(die);
@@ -144,6 +142,7 @@ void playTurn(Board *b, Referee *r, Player *p)
         //check for available moves
         if (!r->movesAvailable(b, p, die))
         {
+            r->checkForWinner(b, p);
             cout << "No moves available - rolling again" << endl;
             continue;
         }

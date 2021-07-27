@@ -165,10 +165,8 @@ void displayInfo(Board *b, Player *p1, Player *p2, ostream& out)
 void playGame(Board *b, Referee *r, Player *p1, Player *p2)
 {
 
-    bool done = false;
     bool playerOneTurn = true;
-    char winner = EMPTY;
-    while (!done)
+    while (!r->isWinner())
     {
         //alternating turns
         playerOneTurn ? playTurn(b, r, p1)
@@ -180,11 +178,8 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
         displayInfo(b, p1, p2);
         
         //check for winner
-        winner = r->checkForWinner(b, p1);
-        winner = r->checkForWinner(b, p2);
-
-        if (winner != EMPTY)
-            done = true;
+        r->checkForWinner(b, p1);
+        r->checkForWinner(b, p2);
     }
 
 }
