@@ -31,6 +31,7 @@ int main()
     cout << "----- endgame test -----" << endl;
 
     //arrange board
+    cout << "----- testing p1 wins" << endl;
     cout << "clearing all but one P1 piece" << endl;
     for (int i = 1; i < 9; i+=2)
         p1->movePiece(b, i, FINISH);
@@ -50,6 +51,40 @@ int main()
     assert(r->isWinner());
 
     r->announceWinnner(cout);
+
+    cout << "----- testing p2 wins" << endl;
+    cout << "creating new board, ref, players" << endl;
+    
+    delete b;
+    delete r;
+    delete p1;
+    delete p2;
+
+    b = new Board();
+    r = new Referee();
+    p1 = new Player(P1);
+    p2 = new Player(P2);
+
+    cout << "clearing all but one P2 piece" << endl;
+    for (int i = 0; i < 8; i+=2)
+        p2->movePiece(b, i, FINISH);
+
+    displayInfo(b, p1, p2);
+
+    cout << "moving P2 piece to FINISH -1" << endl;
+    p2->movePiece(b, 8, FINISH - 1);
+
+    displayInfo(b, p1, p2);
+
+    while (!r->isWinner())
+    {
+        playGame(b, r, p1, p2);
+    }
+
+    assert(r->isWinner());
+
+    r->announceWinnner(cout);
+
 
     delete b;
     delete r;
