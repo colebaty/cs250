@@ -35,12 +35,10 @@ bool Referee::isWinner()
     return _winner != EMPTY;
 }
 
-char Referee::checkForWinner(Board* b, Player* p1, Player* p2)
+char Referee::checkForWinner(Board* b, Player* p)
 {
-    if (!p1->hasPieces())
-        _winner = P1;
-    else if (!p2->hasPieces())
-        _winner = P2;
+    if (!p->hasPieces())
+        _winner = p->getPlayerNumber();
 
     return _winner;
 }
@@ -139,9 +137,7 @@ bool Referee::movesAvailable(Board *b, Player *p, int numRolled)
 {
     vector<char> playerPieces = p->getPlayerPieces();
     if (playerPieces.empty()) 
-        return true;
-    //if (playerPieces.size() == 0) return false;
-    //if (playerPieces.size() == 0) return true;
+        return false;
 
     int origin = 0;
     //for all player pieces in play currently

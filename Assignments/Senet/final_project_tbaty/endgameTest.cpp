@@ -31,6 +31,7 @@ int main()
     cout << "----- endgame test -----" << endl;
 
     //arrange board
+    cout << "----- testing p1 wins" << endl;
     cout << "clearing all but one P1 piece" << endl;
     for (int i = 1; i < 9; i+=2)
         p1->movePiece(b, i, FINISH);
@@ -51,6 +52,40 @@ int main()
 
     r->announceWinnner(cout);
 
+    cout << "----- testing p2 wins" << endl;
+    cout << "creating new board, ref, players" << endl;
+    
+    delete b;
+    delete r;
+    delete p1;
+    delete p2;
+
+    b = new Board();
+    r = new Referee();
+    p1 = new Player(P1);
+    p2 = new Player(P2);
+
+    cout << "clearing all but one P2 piece" << endl;
+    for (int i = 0; i < 8; i+=2)
+        p2->movePiece(b, i, FINISH);
+
+    displayInfo(b, p1, p2);
+
+    cout << "moving P2 piece to FINISH -1" << endl;
+    p2->movePiece(b, 8, FINISH - 1);
+
+    displayInfo(b, p1, p2);
+
+    while (!r->isWinner())
+    {
+        playGame(b, r, p1, p2);
+    }
+
+    assert(r->isWinner());
+
+    r->announceWinnner(cout);
+
+
     delete b;
     delete r;
     delete p1;
@@ -64,17 +99,17 @@ void playTurn(Board *b, Referee *r, Player *p)
     int die;
     bool rollAgain = true;
 
-    while (rollAgain)
+    while (rollAgain && !r->isWinner())
     {
-        if (r->isWinner())
-            break;
-        
         //player rolls die
         p->rollDie(die);
 
         //check for available moves
         if (!r->movesAvailable(b, p, die))
+		{
+			r->checkForWinner(b, p);
             continue;
+		}
 
         //ref checks whether to roll again
         rollAgain = r->rollAgain(die);
@@ -130,10 +165,8 @@ void displayInfo(Board *b, Player *p1, Player *p2, ostream& out)
 void playGame(Board *b, Referee *r, Player *p1, Player *p2)
 {
 
-    bool done = false;
     bool playerOneTurn = true;
-    char winner = EMPTY;
-    while (!done)
+    while (!r->isWinner())
     {
         //alternating turns
         playerOneTurn ? playTurn(b, r, p1)
@@ -145,10 +178,8 @@ void playGame(Board *b, Referee *r, Player *p1, Player *p2)
         displayInfo(b, p1, p2);
         
         //check for winner
-        winner = r->checkForWinner(b, p1, p2);
-
-        if (winner != EMPTY)
-            done = true;
+        r->checkForWinner(b, p1);
+        r->checkForWinner(b, p2);
     }
 
 }
