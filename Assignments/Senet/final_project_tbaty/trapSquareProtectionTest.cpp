@@ -28,7 +28,7 @@ int main()
     Player *p1 = new Player(P1);//P1 referenced in 'senet_constants.h'
     Player *p2 = new Player(P2);//P2 referenced in 'senet_constants.h'
 
-    cout << "----- endgame test -----" << endl;
+    cout << "----- trap square protection test -----" << endl;
 
     //arrange board
     cout << "arranging board so an unprotected piece is ahead of TRAP" << endl;
